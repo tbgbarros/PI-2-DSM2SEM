@@ -3,7 +3,7 @@
   <P>Cadastro pacientes <br>
    - ID_Paciente
    - Nome
-    * Nascimento
+   - Nascimento
     * Sexo
     * Telefone
     * Nome da mae
