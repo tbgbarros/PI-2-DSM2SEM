@@ -6,7 +6,7 @@ de viagens.
 Poderíamos acrescentar o link do portal que redireciona o usuário ao agendamento para vacinação da COVID.
 <hr><br>
 
-Prontuário online:
+<h3>Prontuário online</h3>
 Pensando na dificuldade de comunicação entre médicos sobre um paciente em comum, criamos uma página para facilitarmos o acesso as informações do paciente, quais os seus medicamentos, exames recentes feitos, alergias e informações sobre o mesmo que serão atualizadas por instituições privadas.
 Os médicos terão acesso á medicação já utilizada, exames que já foram solicitados.
 Doenças e tratamentos recentes, com o intuito de reduzir o tempo de espera e duplicidade para exames e tratamentos, evitando também riscos de medicamentos em excesso e demora no atendimento.
