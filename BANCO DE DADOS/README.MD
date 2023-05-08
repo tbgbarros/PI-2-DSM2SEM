@@ -23,7 +23,7 @@
     * Naturalidade
     * Unidade de operação
     * Endereço  
-
+<hr>    
   <P>Cadastro Hospital
     * ID_Hospital
     * Nome
@@ -34,4 +34,4 @@
     * Especialização
     * Naturalidade
     * Unidade de operação
-    
+<hr>        
