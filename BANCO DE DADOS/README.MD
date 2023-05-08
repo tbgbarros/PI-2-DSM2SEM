@@ -1,6 +1,6 @@
 <H1>BANCO DE DADOS</H1>
 <BR>
-  <P>Cadastro pacientes <br>
+  <P>Cadastro pacientes<hr> 
    - ID_Paciente
    - Nome
    - Nascimento
@@ -12,7 +12,7 @@
     
 <hr>    
 <BR>
-  <P>Cadastro medicos
+  <P>Cadastro medicos<hr> 
     ID_Medicos
     * Nome
     * Nascimento
@@ -24,7 +24,7 @@
     * Unidade de operação
     * Endereço  
 
-  <P>Cadastro Hospital
+  <P>Cadastro Hospital<hr> 
     * ID_Hospital
     * Nome
     * Endereço
