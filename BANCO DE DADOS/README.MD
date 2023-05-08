@@ -1,8 +1,8 @@
 <H1>BANCO DE DADOS</H1>
 <BR>
   <P>Cadastro pacientes <br>
-   *ID_Paciente
-    * Nome
+   - ID_Paciente
+   - Nome
     * Nascimento
     * Sexo
     * Telefone
