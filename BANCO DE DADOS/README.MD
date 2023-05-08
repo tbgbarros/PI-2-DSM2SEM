@@ -24,7 +24,6 @@
     * Unidade de operação
     * Endereço  
 
-    <BR>
   <P>Cadastro Hospital
     * ID_Hospital
     * Nome
