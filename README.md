@@ -1,2 +1,9 @@
-# PI-2-DSM2SEM
-PI 2 do curso de DSM da Fatec de Araras
+# Titulo projeto: PI-2-DSM2SEM
+<hr>
+* Descrição:
+
+<hr>
+* Etapas da entrega:
+
+<hr>
+* Prazos e cronograma:
