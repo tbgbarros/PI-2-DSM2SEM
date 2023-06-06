@@ -1,52 +1,61 @@
--- --------------------------------------------------------
--- Servidor:                     127.0.0.1
--- Versão do servidor:           10.4.13-MariaDB - mariadb.org binary distribution
--- OS do Servidor:               Win64
--- HeidiSQL Versão:              12.3.0.6589
--- --------------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 5.0.4deb2+deb11u1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Tempo de geração: 06-Jun-2023 às 19:48
+-- Versão do servidor: 10.5.19-MariaDB-0+deb11u2
+-- versão do PHP: 7.4.33
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Banco de dados: `prontuarioBD`
+--
 
--- Copiando estrutura do banco de dados para prontuariobd
-CREATE DATABASE IF NOT EXISTS `prontuariobd` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-USE `prontuariobd`;
+-- --------------------------------------------------------
 
--- Copiando estrutura para tabela prontuariobd.consulta
-CREATE TABLE IF NOT EXISTS `consulta` (
-  `ID_consulta` int(11) NOT NULL AUTO_INCREMENT,
+--
+-- Estrutura da tabela `consulta`
+--
+
+CREATE TABLE `consulta` (
+  `ID_consulta` int(11) NOT NULL,
   `dt_consulta` date DEFAULT NULL,
   `ID_paciente` int(11) DEFAULT NULL,
-  `arquivo_pdf` blob NOT NULL,
-  PRIMARY KEY (`ID_consulta`),
-  KEY `fk_ID_paciente` (`ID_paciente`),
-  CONSTRAINT `fk_ID_paciente` FOREIGN KEY (`ID_paciente`) REFERENCES `pacientes` (`ID_paciente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `arquivo_pdf` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Exportação de dados foi desmarcado.
+-- --------------------------------------------------------
 
--- Copiando estrutura para tabela prontuariobd.hospital
-CREATE TABLE IF NOT EXISTS `hospital` (
-  `ID_hospital` int(11) NOT NULL AUTO_INCREMENT,
+--
+-- Estrutura da tabela `hospital`
+--
+
+CREATE TABLE `hospital` (
+  `ID_hospital` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL,
   `endereco` varchar(50) NOT NULL,
   `telefone` varchar(20) NOT NULL,
-  `responsavel` varchar(50) NOT NULL,
-  PRIMARY KEY (`ID_hospital`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `responsavel` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Exportação de dados foi desmarcado.
+-- --------------------------------------------------------
 
--- Copiando estrutura para tabela prontuariobd.medico
-CREATE TABLE IF NOT EXISTS `medico` (
-  `ID_medico` int(11) NOT NULL AUTO_INCREMENT,
+--
+-- Estrutura da tabela `medico`
+--
+
+CREATE TABLE `medico` (
+  `ID_medico` int(11) NOT NULL,
   `nome` varchar(50) DEFAULT NULL,
   `dt_nasc` date DEFAULT NULL,
   `sexo` enum('Masculino','Feminino','Outro','Prefiro não informar') DEFAULT NULL,
@@ -56,17 +65,17 @@ CREATE TABLE IF NOT EXISTS `medico` (
   `naturalidade` varchar(50) DEFAULT NULL,
   `unidade_op` varchar(50) DEFAULT NULL,
   `endereco` varchar(100) DEFAULT NULL,
-  `cpf` varchar(15) NOT NULL,
-  PRIMARY KEY (`ID_medico`),
-  UNIQUE KEY `crm` (`crm`),
-  UNIQUE KEY `cpf` (`cpf`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `cpf` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Exportação de dados foi desmarcado.
+-- --------------------------------------------------------
 
--- Copiando estrutura para tabela prontuariobd.pacientes
-CREATE TABLE IF NOT EXISTS `pacientes` (
-  `ID_paciente` int(11) NOT NULL AUTO_INCREMENT,
+--
+-- Estrutura da tabela `pacientes`
+--
+
+CREATE TABLE `pacientes` (
+  `ID_paciente` int(11) NOT NULL,
   `nome` varchar(50) DEFAULT NULL,
   `dt_nasc` date DEFAULT NULL,
   `sexo` enum('Masculino','Feminino','Outro','Prefiro não informar') DEFAULT NULL,
@@ -74,30 +83,121 @@ CREATE TABLE IF NOT EXISTS `pacientes` (
   `nome_mae` varchar(50) DEFAULT NULL,
   `naturalidade` varchar(50) DEFAULT NULL,
   `endereco` varchar(100) DEFAULT NULL,
-  `cpf` varchar(15) NOT NULL,
-  PRIMARY KEY (`ID_paciente`),
-  UNIQUE KEY `cpf` (`cpf`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `cpf` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Exportação de dados foi desmarcado.
+-- --------------------------------------------------------
 
--- Copiando estrutura para tabela prontuariobd.usuario
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `ID_usuario` int(11) NOT NULL AUTO_INCREMENT,
+--
+-- Estrutura da tabela `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `ID_usuario` int(11) NOT NULL,
   `usuario` varchar(50) NOT NULL,
   `senha` varchar(100) NOT NULL,
-  `ID_medico` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ID_usuario`),
-  UNIQUE KEY `usuario` (`usuario`),
-  UNIQUE KEY `senha` (`senha`),
-  KEY `fk_ID_medico` (`ID_medico`),
-  CONSTRAINT `fk_ID_medico` FOREIGN KEY (`ID_medico`) REFERENCES `medico` (`ID_medico`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `ID_medico` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Exportação de dados foi desmarcado.
+--
+-- Extraindo dados da tabela `usuarios`
+--
 
-/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+INSERT INTO `usuarios` (`ID_usuario`, `usuario`, `senha`, `ID_medico`) VALUES
+(1, 'thiago', 'thiago', NULL);
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `consulta`
+--
+ALTER TABLE `consulta`
+  ADD PRIMARY KEY (`ID_consulta`),
+  ADD KEY `fk_ID_paciente` (`ID_paciente`);
+
+--
+-- Índices para tabela `hospital`
+--
+ALTER TABLE `hospital`
+  ADD PRIMARY KEY (`ID_hospital`);
+
+--
+-- Índices para tabela `medico`
+--
+ALTER TABLE `medico`
+  ADD PRIMARY KEY (`ID_medico`),
+  ADD UNIQUE KEY `crm` (`crm`),
+  ADD UNIQUE KEY `cpf` (`cpf`);
+
+--
+-- Índices para tabela `pacientes`
+--
+ALTER TABLE `pacientes`
+  ADD PRIMARY KEY (`ID_paciente`),
+  ADD UNIQUE KEY `cpf` (`cpf`);
+
+--
+-- Índices para tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`ID_usuario`),
+  ADD UNIQUE KEY `usuario` (`usuario`),
+  ADD UNIQUE KEY `senha` (`senha`),
+  ADD KEY `fk_ID_medico` (`ID_medico`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `consulta`
+--
+ALTER TABLE `consulta`
+  MODIFY `ID_consulta` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `hospital`
+--
+ALTER TABLE `hospital`
+  MODIFY `ID_hospital` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `medico`
+--
+ALTER TABLE `medico`
+  MODIFY `ID_medico` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `pacientes`
+--
+ALTER TABLE `pacientes`
+  MODIFY `ID_paciente` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `ID_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `consulta`
+--
+ALTER TABLE `consulta`
+  ADD CONSTRAINT `fk_ID_paciente` FOREIGN KEY (`ID_paciente`) REFERENCES `pacientes` (`ID_paciente`);
+
+--
+-- Limitadores para a tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `fk_ID_medico` FOREIGN KEY (`ID_medico`) REFERENCES `medico` (`ID_medico`);
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
