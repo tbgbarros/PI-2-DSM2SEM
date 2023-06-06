@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "1408776";
-$dbname = "artemis";
+$dbname = "prontuarioBD";
 
 $conexao = new mysqli($servername, $username, $password, $dbname);
 

@@ -18,7 +18,7 @@ class Login
 
         if ($resultado->num_rows == 1) {
             $dadosUsuario = $resultado->fetch_assoc();
-            $this->criarSessao($dadosUsuario['id']);
+            $this->criarSessao($dadosUsuario['ID_usuario']);
             return true;
         } else {
             return false;

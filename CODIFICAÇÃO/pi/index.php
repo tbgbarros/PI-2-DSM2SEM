@@ -46,7 +46,7 @@ require_once 'class/connect.php';
                       </label>
                     </div>
                     <a class="text-primary fw-bold" href="./registro.php">
-
+                      <button type="" class="btn">Registrar</button>
                     </a>
                   </div>
 
