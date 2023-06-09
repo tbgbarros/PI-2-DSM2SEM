@@ -1,11 +1,23 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "1408776";
-$dbname = "prontuarioBD";
 
-$conexao = new mysqli($servername, $username, $password, $dbname);
+class conexao2 {
+    private $servername = "localhost";
+    private $username = "root";
+    private $password = "";
+    private $dbname = "prontuarioBD";
 
-if ($conexao->connect_error) {
-    die("Falha na conexão: " . $conexao->connect_error);
-}
+    private $conexao;
+
+    function __construct() {
+        $this->conexao = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+    }
+
+    public function getConexao() {
+        return $this->conexao;
+    }
+
+    public function fecharConexao() {
+        $this->conexao->close();
+    }
+}  
+

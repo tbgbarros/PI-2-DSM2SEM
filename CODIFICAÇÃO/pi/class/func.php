@@ -1,17 +1,21 @@
 <?php
-class Login
-{
-    private $conexao;
+require_once('infocon.php');
 
-    public function __construct($conexao)
+class Login
+{   
+    private $connect;
+
+    public function __construct()
     {
-        $this->conexao = $conexao;
+        $this->connect=new conexao2();
     }
+
+
 
     public function autenticar($usuario, $senha)
     {
         $query = "SELECT * FROM usuarios WHERE usuario = ? AND senha = ?";
-        $stmt = $this->conexao->prepare($query);
+        $stmt = $this->connect->getConexao()->prepare($query);
         $stmt->bind_param("ss", $usuario, $senha);
         $stmt->execute();
         $resultado = $stmt->get_result();
@@ -41,4 +45,17 @@ class Login
         session_start();
         session_destroy();
     }
+
+
+    public function listarPaciente()
+    {
+        $query = "SELECT * FROM pacientes";
+        $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->execute();
+        $resultadoPacientes = $stmt->get_result();
+        return $resultadoPacientes;
+
+    }
+
+
 }

@@ -28,7 +28,7 @@ if (!Login::estaLogado()) {
       <div>
         <!-- logo esta bugado vou deixar sem por enquanto / se corrigir da pra tentar puxar imagem do cadastro no banco de dados | bootstrap aqui-->
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
+          <a href="./home.php" class="text-nowrap logo-img">
             <img src="./images/logos/logo_padrao.svg" width="180" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -43,7 +43,7 @@ if (!Login::estaLogado()) {
               <span class="hide-menu">Inicio</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./index.php" aria-expanded="false">
+              <a class="sidebar-link" href="./guia.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
@@ -52,81 +52,54 @@ if (!Login::estaLogado()) {
             </li>
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">UI COMPONENTS</span>
+              <span class="hide-menu">Pacientes</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+              <a class="sidebar-link" href="./paciente.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-article"></i>
                 </span>
-                <span class="hide-menu">Buttons</span>
+                <span class="hide-menu">Pacientes</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+              <a class="sidebar-link" href="./prontuario.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-alert-circle"></i>
                 </span>
-                <span class="hide-menu">Alerts</span>
+                <span class="hide-menu">Prontuarios</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+              <a class="sidebar-link" href="./relatorios.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-cards"></i>
                 </span>
-                <span class="hide-menu">Card</span>
+                <span class="hide-menu">Relatorios</span>
               </a>
             </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-file-description"></i>
-                </span>
-                <span class="hide-menu">Forms</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-typography"></i>
-                </span>
-                <span class="hide-menu">Typography</span>
-              </a>
-            </li>
-
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">EXTRA</span>
+              <span class="hide-menu">Medico</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+              <a class="sidebar-link" href="./guiamedico.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-mood-happy"></i>
                 </span>
-                <span class="hide-menu">Icons</span>
+                <span class="hide-menu">Guia medico</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
+              <a class="sidebar-link" href="./relatoriomedico.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-aperture"></i>
                 </span>
-                <span class="hide-menu">Sample Page</span>
+                <span class="hide-menu">Relatorio medico</span>
               </a>
             </li>
           </ul>
-          <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
-            <div class="d-flex">
-              <div class="unlimited-access-title me-3">
-                <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Upgrade to pro</h6>
-                <a href="https://adminmart.com/product/modernize-bootstrap-5-admin-template/" target="_blank" class="btn btn-primary fs-2 fw-semibold lh-sm">Buy Pro</a>
-              </div>
-              <div class="unlimited-access-img">
-                <img src="/images/backgrounds/rocket.png" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div>
+
         </nav>
         <!-- End Sidebar navigation -->
       </div>
@@ -194,6 +167,54 @@ if (!Login::estaLogado()) {
           <div class="col-lg-12 d-flex align-items-strech">
             <div class="card w-100">
 
+
+            <!--teste table -->
+            <div class="table-responsive">
+            <table class="table table-sm table-bordered table-hover">
+
+            <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Data Nascimento</th>
+                        <th>Sexo</th>
+                        <th>Telefone</th>
+                        <th>Mãe</th>
+                        <th>Naturalidade</th>
+                        <th>Endereço</th>
+                        <th>CPF</th>
+                    </tr>
+                </thead>
+
+            <?php
+            require_once 'class/func.php';
+                // Chama a função para buscar os pacientes
+                $pacientes = new Login();
+                $consultaPaciente = $pacientes->listarPaciente();
+                
+                // Verifica se existem registros retornados
+                if (!empty($consultaPaciente)) {
+                    // Itera sobre os registros e exibe na tabela
+                    while ($row = $consultaPaciente->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row["ID_paciente"] . "</td>";
+                        echo "<td>" . $row["nome"] . "</td>";
+                        echo "<td>" . $row["dt_nasc"] . "</td>";
+                        echo "<td>" . $row["sexo"] . "</td>";
+                        echo "<td>" . $row["telefone"] . "</td>";
+                        echo "<td>" . $row["nome_mae"] . "</td>";
+                        echo "<td>" . $row["naturalidade"] . "</td>";
+                        echo "<td>" . $row["endereco"] . "</td>";
+                        echo "<td>" . $row["cpf"] . "</td>";
+                        // Adicione aqui mais colunas conforme necessário
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='9'>Nenhum registro encontrado.</td></tr>";
+                }
+                ?>
+                </table>
+                </div>
             </div>
           </div>
         </div>

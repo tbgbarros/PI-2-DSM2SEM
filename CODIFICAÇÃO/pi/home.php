@@ -28,7 +28,7 @@ if (!Login::estaLogado()) {
       <div>
         <!-- logo esta bugado vou deixar sem por enquanto / se corrigir da pra tentar puxar imagem do cadastro no banco de dados | bootstrap aqui-->
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
+          <a href="./home.php" class="text-nowrap logo-img">
             <img src="./images/logos/logo_padrao.svg" width="180" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">

@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['usuario'];
     $senha = $_POST['senha'];
 
-    $login = new Login($conexao);
+    $login = new Login();
 
     if ($login->autenticar($usuario, $senha)) {
         header('Location: home.php');

@@ -28,13 +28,14 @@ if (!Login::estaLogado()) {
       <div>
         <!-- logo esta bugado vou deixar sem por enquanto / se corrigir da pra tentar puxar imagem do cadastro no banco de dados | bootstrap aqui-->
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.php" class="text-nowrap logo-img">
+          <a href="./home.php" class="text-nowrap logo-img">
             <img src="./images/logos/logo_padrao.svg" width="180" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
           </div>
         </div>
+        <!-- Sidebar navigation-->
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
           <ul id="sidebarnav">
@@ -43,10 +44,7 @@ if (!Login::estaLogado()) {
               <span class="hide-menu">Inicio</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./index.php" aria-expanded="false">
-                <span>
-                  <i class="ti ti-article"></i>
-                </span>
+              <a class="sidebar-link" href="./guia.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
@@ -55,70 +53,54 @@ if (!Login::estaLogado()) {
             </li>
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">UI COMPONENTS</span>
+              <span class="hide-menu">Pacientes</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+              <a class="sidebar-link" href="./paciente.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-article"></i>
                 </span>
-                <span class="hide-menu">Buttons</span>
+                <span class="hide-menu">Pacientes</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+              <a class="sidebar-link" href="./prontuario.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-alert-circle"></i>
                 </span>
-                <span class="hide-menu">Alerts</span>
+                <span class="hide-menu">Prontuarios</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+              <a class="sidebar-link" href="./relatorios.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-cards"></i>
                 </span>
-                <span class="hide-menu">Card</span>
+                <span class="hide-menu">Relatorios</span>
               </a>
             </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-file-description"></i>
-                </span>
-                <span class="hide-menu">Forms</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-typography"></i>
-                </span>
-                <span class="hide-menu">Typography</span>
-              </a>
-            </li>
-
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">EXTRA</span>
+              <span class="hide-menu">Medico</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+              <a class="sidebar-link" href="./guiamedico.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-mood-happy"></i>
                 </span>
-                <span class="hide-menu">Icons</span>
+                <span class="hide-menu">Guia medico</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
+              <a class="sidebar-link" href="./relatoriomedico.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-aperture"></i>
                 </span>
-                <span class="hide-menu">Sample Page</span>
+                <span class="hide-menu">Relatorio medico</span>
               </a>
             </li>
           </ul>
+
         </nav>
         <!-- End Sidebar navigation -->
       </div>
