@@ -68,6 +68,26 @@ if (isset($_POST['editar'])) {
                         </li>
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                            <span class="hide-menu">Cadastro</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./cad_paciente.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-layout"></i>
+                                </span>
+                                <span class="hide-menu">Cadastro Paciente</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./cad_prontuario.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-dashboard"></i>
+                                </span>
+                                <span class="hide-menu">Cadastro Prontuarios</span>
+                            </a>
+                        </li>
+                        <li class="nav-small-cap">
+                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                             <span class="hide-menu">Pacientes</span>
                         </li>
                         <li class="sidebar-item">
@@ -117,7 +137,7 @@ if (isset($_POST['editar'])) {
                     </ul>
 
                 </nav>
-                <!-- End Sidebar navigation -->
+                <!-- nav sidebar -->
             </div>
             <!-- End Sidebar scroll-->
         </aside>
@@ -211,14 +231,16 @@ if (isset($_POST['editar'])) {
                                 <thead>
                                     <tr>
                                         <th>Id</th>
+                                        <th>CRM</th>
+                                        <th>CPF</th>
                                         <th>Nome</th>
                                         <th>Nascimento</th>
                                         <th>Sexo</th>
                                         <th>Telefone</th>
-                                        <th>Mãe</th>
-                                        <th>Naturalidade</th>
+                                        <th>Especializacão</th>
+                                        <th>Naturalização</th>
+                                        <th>Hospital</th>
                                         <th>Endereco</th>
-                                        <th>CPF</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -235,16 +257,16 @@ if (isset($_POST['editar'])) {
                                             while ($row = $consultaMedicos->fetch_assoc()) {
                                                 echo "<tr>";
                                                 echo "<td>" . $row["ID_medico"] . "</td>";
-                                                echo "<td>" . $row["nome"] . "</td>";
+                                                echo "<td>" . $row["crm"] . "</td>";
+                                                echo "<td>" . $row["cpf"] . "</td>";
+                                                echo "<td>" . $row["nomemedico"] . "</td>";
                                                 echo "<td>" . $row["dt_nasc"] . "</td>";
                                                 echo "<td>" . $row["sexo"] . "</td>";
                                                 echo "<td>" . $row["telefone"] . "</td>";
-                                                echo "<td>" . $row["crm"] . "</td>";
                                                 echo "<td>" . $row["especializacao"] . "</td>";
                                                 echo "<td>" . $row["naturalidade"] . "</td>";
                                                 echo "<td>" . $row["unidade_op"] . "</td>";
                                                 echo "<td>" . $row["endereco"] . "</td>";
-                                                echo "<td>" . $row["cpf"] . "</td>";
                                                 // Adicione aqui mais colunas conforme necessário
                                         
 

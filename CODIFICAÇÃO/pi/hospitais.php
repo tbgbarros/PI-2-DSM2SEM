@@ -219,7 +219,7 @@ if (!Login::estaLogado()) {
                                             while ($row = $consultaHospitais->fetch_assoc()) {
                                                 echo "<tr>";
                                                 echo "<td>" . $row["ID_hospital"] . "</td>";
-                                                echo "<td>" . $row["nome"] . "</td>";
+                                                echo "<td>" . $row["nome_hospital"] . "</td>";
                                                 echo "<td>" . $row["endereco"] . "</td>";
                                                 echo "<td>" . $row["telefone"] . "</td>";
                                                 echo "<td>" . $row["responsavel"] . "</td>";

@@ -56,9 +56,36 @@ $pessoa = new Login();
                         </li>
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                            <span class="hide-menu">Cadastro</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./cad_paciente.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-layout"></i>
+                                </span>
+                                <span class="hide-menu">Cadastro Paciente</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./cad_prontuario.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-dashboard"></i>
+                                </span>
+                                <span class="hide-menu">Cadastro Prontuarios</span>
+                            </a>
+                        </li>
+                        <li class="nav-small-cap">
+                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                             <span class="hide-menu">Pacientes</span>
                         </li>
-
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./paciente.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-article"></i>
+                                </span>
+                                <span class="hide-menu">Pacientes</span>
+                            </a>
+                        </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="./prontuario.php" aria-expanded="false">
                                 <span>
@@ -98,7 +125,7 @@ $pessoa = new Login();
                     </ul>
 
                 </nav>
-                <!-- End Sidebar navigation -->
+                <!-- nav sidebar -->
             </div>
             <!-- End Sidebar scroll-->
         </aside>

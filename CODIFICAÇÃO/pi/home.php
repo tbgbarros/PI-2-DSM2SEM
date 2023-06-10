@@ -55,6 +55,15 @@ if (!Login::estaLogado()) {
                 <span class="hide-menu">Guia de consultas</span>
               </a>
             </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./cad_prontuario.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-dashboard"></i>
+                </span>
+                <span class="hide-menu">Cadastro Consulta</span>
+              </a>
+            </li>
+            <!-- divisao cadastro -->
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Cadastro</span>
@@ -62,7 +71,7 @@ if (!Login::estaLogado()) {
             <li class="sidebar-item">
               <a class="sidebar-link" href="./cad_paciente.php" aria-expanded="false">
                 <span>
-                  <i class="ti ti-layout-dashboard"></i>
+                  <i class="ti ti-layout"></i>
                 </span>
                 <span class="hide-menu">Cadastro Paciente</span>
               </a>
@@ -70,9 +79,25 @@ if (!Login::estaLogado()) {
             <li class="sidebar-item">
               <a class="sidebar-link" href="./cad_prontuario.php" aria-expanded="false">
                 <span>
-                  <i class="ti ti-layout-dashboard"></i>
+                  <i class="ti ti-dashboard"></i>
                 </span>
                 <span class="hide-menu">Cadastro Prontuarios</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./cad_medico.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-table"></i>
+                </span>
+                <span class="hide-menu">Cadastro Medicos</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./cad_hospital.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-table"></i>
+                </span>
+                <span class="hide-menu">Cadastro Hospitais</span>
               </a>
             </li>
             <li class="nav-small-cap">

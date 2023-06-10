@@ -59,7 +59,7 @@ class Login
     {
         session_start();
         $_SESSION['ID_usuario'] = $idUsuario;
-        $_SESSION['nome'] = $nomeMedico;
+        $_SESSION['nomemedico'] = $nomeMedico;
     }
 
     public static function estaLogado()
@@ -150,7 +150,8 @@ class Login
 
     public function updatePaciente($nome, $dtNasc, $sexo, $telefone, $nomeMae, $naturalidade, $endereco, $cpf)
     {
-        $upPaciente = "UPDATE pacientes SET nome = ?, dt_nasc = ?, sexo = ?, telefone = ?, nome_mae = ?, naturalidade = ?, endereco = ? WHERE cpf = ?";
+        $upPaciente = "UPDATE pacientes SET nome = ?, dt_nasc = ?, sexo = ?, telefone = ?,
+         nome_mae = ?, naturalidade = ?, endereco = ? WHERE cpf = ?";
         $stmt = $this->connect->getConexao()->prepare($upPaciente);
         $stmt->bind_param("ssssssss", $nome, $dtNasc, $sexo, $telefone, $nomeMae, $naturalidade, $endereco, $cpf);
         $stmt->execute();
@@ -199,4 +200,126 @@ class Login
         }
 
     }
+
+    //listar consultas JOIN
+    public function listarConsultas()
+    {
+        $query = "SELECT p.nome,p.cpf,p.sexo, p.telefone,c.dt_consulta,  
+        m.crm, m.nomemedico, m.especializacao, m.unidade_op
+        FROM consulta c
+        JOIN medico m ON c.ID_medico = m.ID_medico
+        JOIN pacientes p ON c.cpf = p.cpf
+        ORDER BY c.dt_consulta DESC;";
+        $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->execute();
+        $resultadoConsultas = $stmt->get_result();
+        return $resultadoConsultas;
+    }
+
+    //cadastro medico
+    public function cadastroMedico(
+        $nomemedico,
+        $dtNasc,
+        $sexo,
+        $telefone,
+        $crm,
+        $especializacao,
+        $naturalidade,
+        $unidade_op,
+        $endereco,
+        $cpf,
+        $senha
+    ) {
+        //inseri os dados
+        $query = "INSERT INTO medico (nomemedico, dt_nasc, sexo, telefone, crm, especializacao, naturalidade, unidade_op, endereco, cpf, senha)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->bind_param(
+            "sibsssssssi",
+            $nomemedico,
+            $dtNasc,
+            $sexo,
+            $telefone,
+            $crm,
+            $especializacao,
+            $naturalidade,
+            $unidade_op,
+            $endereco,
+            $cpf,
+            $senha
+        );
+        $stmt->execute();
+        // verifica
+        if ($stmt->affected_rows > 0) {
+            echo '<script>
+            alert("Dados inseridos com sucesso!");
+            window.location.href = "cad_medico.php";
+            </script>';
+        } else {
+            echo '<script>
+            alert("Falha na inserão dos dados!");
+            window.location.href = "cad_medico.php";
+            </script>';
+        }
+        $stmt->close();
+    }
+
+    function buscarHospitais()
+    {
+        $query = "SELECT ID_hospital, nome_hospital FROM hospital";
+        $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        while ($hospital = $result->fetch_assoc()) {
+            echo '<option value="' . $hospital['ID_hospital'] . '">' . $hospital['nome_hospital'] . '</option>';
+        }
+    }
+
+    function buscarSexoPaciente()
+    {
+        $query = "SELECT ID_hospital, nome_hospital FROM pacientes";
+        $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        while ($hospital = $result->fetch_assoc()) {
+            echo '<option value="' . $hospital['sexo'] . '">' . '</option>';
+        }
+    }
+
+    //cadastro medico
+    public function cadastroHospital(
+        $nome_hospital,
+        $endereco,
+        $telefone,
+        $responsavel
+    ) {
+        //inseri os dados do hospital
+        $query = "INSERT INTO hospital (nome_hospital, endereco, telefone, responsavel)
+        VALUES (?, ?, ?, ?)";
+        $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->bind_param(
+            "ssss",
+            $nome_hospital,
+            $endereco,
+            $telefone,
+            $responsavel
+        );
+        $stmt->execute();
+        // verifica
+        if ($stmt->affected_rows > 0) {
+            echo '<script>
+            alert("Dados inseridos com sucesso!");
+            window.location.href = "cad_hospital.php";
+            </script>';
+        } else {
+            echo '<script>
+            alert("Falha na inserão dos dados!");
+            window.location.href = "cad_hospital.php";
+            </script>';
+        }
+        $stmt->close();
+    }
+
 }

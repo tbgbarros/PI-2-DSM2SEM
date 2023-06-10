@@ -69,6 +69,26 @@ if (isset($_POST['editar'])) {
             </li>
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Cadastro</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./cad_paciente.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout"></i>
+                </span>
+                <span class="hide-menu">Cadastro Paciente</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./cad_prontuario.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-dashboard"></i>
+                </span>
+                <span class="hide-menu">Cadastro Prontuarios</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Pacientes</span>
             </li>
             <li class="sidebar-item">
@@ -118,7 +138,7 @@ if (isset($_POST['editar'])) {
           </ul>
 
         </nav>
-        <!-- End Sidebar navigation -->
+        <!-- nav sidebar -->
       </div>
       <!-- End Sidebar scroll-->
     </aside>
@@ -160,17 +180,17 @@ if (isset($_POST['editar'])) {
                   <div class="message-body">
                     <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3">My Profile</p>
+                      <p class="mb-0 fs-3">Meu Perfil</p>
                     </a>
                     <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-mail fs-6"></i>
-                      <p class="mb-0 fs-3">My Account</p>
+                      <p class="mb-0 fs-3">Minha conta</p>
                     </a>
                     <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-list-check fs-6"></i>
-                      <p class="mb-0 fs-3">My Task</p>
+                      <p class="mb-0 fs-3">Minhas tarefas</p>
                     </a>
-                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Sair</a>
                   </div>
                 </div>
               </li>
@@ -184,7 +204,7 @@ if (isset($_POST['editar'])) {
         <div class="row">
           <div class="col-lg-12 d-flex align-items-stretch">
             <div class="card w-100">
-              <h1>Medicos</h1>
+              <h1>Consultas</h1>
             </div>
           </div>
           <!-- 8 x 4 x 4 as div-->
@@ -204,15 +224,15 @@ if (isset($_POST['editar'])) {
               <table class="table table-sm table-bordered table-hover">
                 <thead>
                   <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Nascimento</th>
-                    <th>Sexo</th>
-                    <th>Telefone</th>
-                    <th>Mãe</th>
-                    <th>Naturalidade</th>
-                    <th>Endereco</th>
+                    <th>Paciente</th>
                     <th>CPF</th>
+                    <th>Sexo</th>
+                    <th>Fone Paciente</th>
+                    <th>Data consulta</th>
+                    <th>CRM Medico</th>
+                    <th>Nome Medico</th>
+                    <th>Especialização</th>
+                    <th>Hospital</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -220,37 +240,24 @@ if (isset($_POST['editar'])) {
                     <?php
                     require_once 'class/func.php';
                     // Chama a função para buscar os pacientes
-                    $pacientes = new Login();
-                    $consultaMedicos = $pacientes->listarMedicos();
+                    $consult = new Login();
+                    $consultaConsultas = $consult->listarConsultas();
 
                     // Verifica se existem registros retornados
-                    if (!empty($consultaMedicos)) {
+                    if (!empty($consultaConsultas)) {
                       // Itera sobre os registros e exibe na tabela
-                      while ($row = $consultaMedicos->fetch_assoc()) {
+                      while ($row = $consultaConsultas->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . $row["ID_medico"] . "</td>";
                         echo "<td>" . $row["nome"] . "</td>";
-                        echo "<td>" . $row["dt_nasc"] . "</td>";
+                        echo "<td>" . $row["cpf"] . "</td>";
                         echo "<td>" . $row["sexo"] . "</td>";
                         echo "<td>" . $row["telefone"] . "</td>";
+                        echo "<td>" . $row["dt_consulta"] . "</td>";
                         echo "<td>" . $row["crm"] . "</td>";
+                        echo "<td>" . $row["nomemedico"] . "</td>";
                         echo "<td>" . $row["especializacao"] . "</td>";
-                        echo "<td>" . $row["naturalidade"] . "</td>";
                         echo "<td>" . $row["unidade_op"] . "</td>";
-                        echo "<td>" . $row["endereco"] . "</td>";
-                        echo "<td>" . $row["cpf"] . "</td>";
                         // Adicione aqui mais colunas conforme necessário
-                    
-
-                        echo "<td class='text-center'>
-                        <button class='btn  btn-primary btn-sm' data-toggle='modal' data-target='#editar'>
-                          Editar
-                        </button>
-                        <a href='deleteEvento.php'>
-                          <button class='btn btn-danger btn-sm' type='button'>Excluir</button>
-                        </a>
-                      </td>";
-
                         echo "</tr>";
                       }
                     } else {
@@ -258,75 +265,9 @@ if (isset($_POST['editar'])) {
                     }
                     ?>
                   </tr>
-                  <!-- Modal -->
-                  <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <form action="atualizarPacientes.php" method="POST">
-                            <div class="row">
-                              <div class="col-md-5">
-                                <label>Nome</label>
-                                <input type="text" name="nome" value="nome" class="form-control" required />
-                              </div>
-                              <div class="col-md-7">
-                                <label>Nascimento</label>
-                                <input type="text" name="dt_nasc" value="dt_nasc" class="form-control" required />
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-3">
-                                <label>Sexo</label>
-                                <input type="text" name="sexo" value="sexo" class="form-control" required />"
-                                value="dfgdfgfg" class="form-control" required />
-                              </div>
-                              <div class="col-md-3">
-                                <label>Telefone</label>
-                                <input type="number" name="telefone" value="telefone" class="form-control" required />
-                              </div>
-                              <div class="col-md-3">
-                                <label>Mãe</label>
-                                <input type="text" name="nome_mae" value="nome_mae" class="form-control" required />
-                              </div>
-                              <div class="col-md-3">
-                                <label>Naturalidade</label>
-                                <input type="text" name="nome_mae" value="nome_mae" class="form-control" required />
-                              </div>
-                              <div class="col-md-3">
-                                <label>Endereco</label>
-                                <input type="text" name="nome_mae" value="nome_mae" class="form-control" required />
-                              </div>
-                              <div class="col-md-3">
-                                <label>CPF</label>
-                                <input type="number" name="nome_mae" value="nome_mae" class="form-control" required />
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-2">
-                                <br>
-                                <input type="hidden" name="cpf" value="cpf" />
-                                <button class="btn btn-primary" type="submit" name="editar">Editar</button>
-                              </div>
-                            </div>
-
-                          </form>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
                 </tbody>
               </table>
             </div>
-
           </div>
         </section>
       </main>
