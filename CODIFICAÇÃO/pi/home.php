@@ -5,6 +5,9 @@ require_once 'class/func.php';
 if (!Login::estaLogado()) {
   header('Location: index.php');
   exit;
+} else {
+  $sessionID = Login::estaLogado();
+  $sessionNome = Login::nomeLogado();
 }
 ?>
 <!doctype html>
@@ -16,11 +19,13 @@ if (!Login::estaLogado()) {
   <title>Prontuário Online</title>
   <link rel="shortcut icon" type="image/png" href="./images/logos/favicon.png" />
   <link rel="stylesheet" href="./css/styles.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
   <!--  class body css modificado -->
-  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
     <!-- barra lateral  nao consegui corrigir o bug do mobile ainda -->
 
     <!-- vou ocultar o logo versão mobile-->
@@ -48,6 +53,26 @@ if (!Login::estaLogado()) {
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
                 <span class="hide-menu">Guia de consultas</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Cadastro</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./cad_paciente.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Cadastro Paciente</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./cad_prontuario.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Cadastro Prontuarios</span>
               </a>
             </li>
             <li class="nav-small-cap">
@@ -91,11 +116,11 @@ if (!Login::estaLogado()) {
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./relatoriomedico.php" aria-expanded="false">
+              <a class="sidebar-link" href="./hospitais.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-aperture"></i>
                 </span>
-                <span class="hide-menu">Relatorio medico</span>
+                <span class="hide-menu">Hospitais</span>
               </a>
             </li>
           </ul>
@@ -119,15 +144,17 @@ if (!Login::estaLogado()) {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-icon-hover" href="javascript:console.log('javascript');alert('Notificação')">
-                <i class="ti ti-bell-ringing"></i>
-                <div class="notification bg-primary rounded-circle"></div>
+              <a class="nav-link nav-icon-hover"
+                href="javascript:console.log('javascript');alert('<?php echo $sessionNome; ?>')">
+                <i class=" ti-bell-ringing">
+                  <?php echo 'Dr(a) ' . $sessionNome; ?>
+                </i>
               </a>
             </li>
           </ul>
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-              <a href="#" onclick="sairPagina()" target="_blank" class="btn btn-primary"><button type="submit" class="btn">
+              <a href="#" onclick="sairPagina()" target="_blank" class=""><button type="submit" class="btn btn-primary">
                   <script>
                     function sairPagina() {
                       window.location.href = "logout.php";
@@ -135,7 +162,8 @@ if (!Login::estaLogado()) {
                   </script>Sair
                 </button></a>
               <li class="nav-item dropdown">
-                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
                   <img src="./images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
@@ -191,7 +219,8 @@ if (!Login::estaLogado()) {
                       <div class="col-8">
                         <h4 class="fw-semibold mb-3">60</h4>
                         <div class="d-flex align-items-center mb-3">
-                          <span class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                          <span
+                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
                             <i class="ti ti-arrow-up-left text-success"></i>
                           </span>
                           <p class="text-dark me-1 fs-3 mb-0">+9%</p>
@@ -226,7 +255,8 @@ if (!Login::estaLogado()) {
                         <h5 class="card-title mb-9 fw-semibold"> Consultas mensais </h5>
                         <h4 class="fw-semibold mb-3">17</h4>
                         <div class="d-flex align-items-center pb-1">
-                          <span class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
+                          <span
+                            class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
                             <i class="ti ti-arrow-down-right text-danger"></i>
                           </span>
                           <p class="text-dark me-1 fs-3 mb-0">+2%</p>
@@ -235,7 +265,8 @@ if (!Login::estaLogado()) {
                       </div>
                       <div class="col-4">
                         <div class="d-flex justify-content-end">
-                          <div class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
+                          <div
+                            class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
                             <i class="ti ti-currency-dollar fs-6"></i>
                           </div>
                         </div>
@@ -271,7 +302,8 @@ if (!Login::estaLogado()) {
                       <span class="timeline-badge border-2 border border-info flex-shrink-0 my-8"></span>
                       <span class="timeline-badge-border d-block flex-shrink-0"></span>
                     </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada <a href="javascript:void(0)" class="text-primary d-block fw-normal">#ML-3467</a>
+                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada <a
+                        href="javascript:void(0)" class="text-primary d-block fw-normal">#ML-3467</a>
                     </div>
                   </li>
                   <li class="timeline-item d-flex position-relative overflow-hidden">
@@ -288,7 +320,8 @@ if (!Login::estaLogado()) {
                       <span class="timeline-badge border-2 border border-warning flex-shrink-0 my-8"></span>
                       <span class="timeline-badge-border d-block flex-shrink-0"></span>
                     </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada <a href="javascript:void(0)" class="text-primary d-block fw-normal">#ML-3467</a>
+                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada <a
+                        href="javascript:void(0)" class="text-primary d-block fw-normal">#ML-3467</a>
                     </div>
                   </li>
                   <li class="timeline-item d-flex position-relative overflow-hidden">

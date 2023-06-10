@@ -6,6 +6,21 @@ if (!Login::estaLogado()) {
   header('Location: paciente.php');
   exit;
 }
+
+$login = new Login();
+//formulario para editar, verificacao 
+if (isset($_POST['editar'])) {
+  // atribuido post
+  $nome = $_POST['nome'];
+  $dt_nasc = $_POST['dt_nasc'];
+  $sexo = $_POST['sexo'];
+  $telefone = $_POST['telefone'];
+  $nome_mae = $_POST['nome_mae'];
+  $naturalidade = $_POST['naturalidade'];
+  $endereco = $_POST['endereco'];
+  $cpf = $_POST['cpf'];
+}
+
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -20,7 +35,8 @@ if (!Login::estaLogado()) {
 
 <body>
   <!--  class body css modificado -->
-  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
     <!-- barra lateral  nao consegui corrigir o bug do mobile ainda -->
 
     <!-- vou ocultar o logo versão mobile-->
@@ -91,11 +107,11 @@ if (!Login::estaLogado()) {
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./relatoriomedico.php" aria-expanded="false">
+              <a class="sidebar-link" href="./hospitais.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-aperture"></i>
                 </span>
-                <span class="hide-menu">Relatorio medico</span>
+                <span class="hide-menu">Hospitais</span>
               </a>
             </li>
           </ul>
@@ -126,7 +142,8 @@ if (!Login::estaLogado()) {
           </ul>
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-              <a href="#" onclick="sairPagina()" target="_blank" class="btn btn-primary"><button type="submit" class="btn">
+              <a href="#" onclick="sairPagina()" target="_blank" class="btn btn-primary"><button type="submit"
+                  class="btn">
                   <script>
                     function sairPagina() {
                       window.location.href = "logout.php";
@@ -134,7 +151,8 @@ if (!Login::estaLogado()) {
                   </script>Sair
                 </button></a>
               <li class="nav-item dropdown">
-                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
                   <img src="./images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
@@ -163,39 +181,51 @@ if (!Login::estaLogado()) {
       <div class="container-fluid">
         <!--  Row 1 -->
         <div class="row">
-          <h1>Pacientes</h1>
-          <div class="col-lg-12 d-flex align-items-strech">
+          <div class="col-lg-12 d-flex align-items-stretch">
             <div class="card w-100">
+              <h1>Pacientes</h1>
+            </div>
+          </div>
+          <!-- 8 x 4 x 4 as div-->
 
 
-            <!--teste table -->
+        </div>
+      </div>
+
+
+      <!-- consulta nova -->
+
+      <main>
+        <section class="featured-places">
+          <div class="container">
+            <hr>
             <div class="table-responsive">
-            <table class="table table-sm table-bordered table-hover">
-
-            <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nome</th>
-                        <th>Data Nascimento</th>
-                        <th>Sexo</th>
-                        <th>Telefone</th>
-                        <th>Mãe</th>
-                        <th>Naturalidade</th>
-                        <th>Endereço</th>
-                        <th>CPF</th>
-                    </tr>
+              <table class="table table-sm table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Nascimento</th>
+                    <th>Sexo</th>
+                    <th>Telefone</th>
+                    <th>Mãe</th>
+                    <th>Naturalidade</th>
+                    <th>Endereco</th>
+                    <th>CPF</th>
+                  </tr>
                 </thead>
+                <tbody>
+                  <tr>
+                    <?php
+                    require_once 'class/func.php';
+                    // Chama a função para buscar os pacientes
+                    $pacientes = new Login();
+                    $consultaPaciente = $pacientes->listarPaciente();
 
-            <?php
-            require_once 'class/func.php';
-                // Chama a função para buscar os pacientes
-                $pacientes = new Login();
-                $consultaPaciente = $pacientes->listarPaciente();
-                
-                // Verifica se existem registros retornados
-                if (!empty($consultaPaciente)) {
-                    // Itera sobre os registros e exibe na tabela
-                    while ($row = $consultaPaciente->fetch_assoc()) {
+                    // Verifica se existem registros retornados
+                    if (!empty($consultaPaciente)) {
+                      // Itera sobre os registros e exibe na tabela
+                      while ($row = $consultaPaciente->fetch_assoc()) {
                         echo "<tr>";
                         echo "<td>" . $row["ID_paciente"] . "</td>";
                         echo "<td>" . $row["nome"] . "</td>";
@@ -207,29 +237,115 @@ if (!Login::estaLogado()) {
                         echo "<td>" . $row["endereco"] . "</td>";
                         echo "<td>" . $row["cpf"] . "</td>";
                         // Adicione aqui mais colunas conforme necessário
+                    
+
+                        echo "<td class='text-center'>
+                        <button class='btn  btn-primary btn-sm' data-toggle='modal' data-target='#editar'>
+                          Editar
+                        </button>
+                        <a href='deleteEvento.php'>
+                          <button class='btn btn-danger btn-sm' type='button'>Excluir</button>
+                        </a>
+                      </td>";
+
                         echo "</tr>";
+                      }
+                    } else {
+                      echo "<tr><td colspan='4'>Nenhum registro encontrado.</td></tr>";
                     }
-                } else {
-                    echo "<tr><td colspan='9'>Nenhum registro encontrado.</td></tr>";
-                }
-                ?>
-                </table>
-                </div>
+                    ?>
+                  </tr>
+
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form action="atualizarPacientes.php" method="POST">
+                            <div class="row">
+                              <div class="col-md-5">
+                                <label>Nome</label>
+                                <input type="text" name="nome" value="nome" class="form-control" required />
+                              </div>
+                              <div class="col-md-7">
+                                <label>Nascimento</label>
+                                <input type="text" name="dt_nasc" value="dt_nasc" class="form-control" required />
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-3">
+                                <label>Sexo</label>
+                                <input type="text" name="sexo" value="sexo" class="form-control" required />"
+                                value="dfgdfgfg" class="form-control" required />
+                              </div>
+                              <div class="col-md-3">
+                                <label>Telefone</label>
+                                <input type="number" name="telefone" value="telefone" class="form-control" required />
+                              </div>
+                              <div class="col-md-3">
+                                <label>Mãe</label>
+                                <input type="text" name="nome_mae" value="nome_mae" class="form-control" required />
+                              </div>
+                              <div class="col-md-3">
+                                <label>Naturalidade</label>
+                                <input type="text" name="nome_mae" value="nome_mae" class="form-control" required />
+                              </div>
+                              <div class="col-md-3">
+                                <label>Endereco</label>
+                                <input type="text" name="nome_mae" value="nome_mae" class="form-control" required />
+                              </div>
+                              <div class="col-md-3">
+                                <label>CPF</label>
+                                <input type="number" name="nome_mae" value="nome_mae" class="form-control" required />
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-2">
+                                <br>
+                                <input type="hidden" name="cpf" value="cpf" />
+                                <button class="btn btn-primary" type="submit" name="editar">Editar</button>
+                              </div>
+                            </div>
+
+                          </form>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </tbody>
+              </table>
             </div>
+
           </div>
-        </div>
-
-
-      </div>
+        </section>
+      </main>
+      <!-- fim consulta nova -->
     </div>
-  </div>
-  <script src="./libs/jquery/dist/jquery.min.js"></script>
-  <script src="./libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="./js/sidebarmenu.js"></script>
-  <script src="./js/app.min.js"></script>
-  <script src="./libs/apexcharts/dist/apexcharts.min.js"></script>
-  <script src="./libs/simplebar/dist/simplebar.js"></script>
-  <script src="./js/dashboard.js"></script>
+    <script src="./libs/jquery/dist/jquery.min.js"></script>
+    <script src="./libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/sidebarmenu.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/app.min.js"></script>
+    <script src="./libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="./libs/simplebar/dist/simplebar.js"></script>
+    <script src="./js/dashboard.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+
 </body>
 
 </html>
