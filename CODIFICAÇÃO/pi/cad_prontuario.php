@@ -10,15 +10,28 @@ if (!Login::estaLogado()) {
     $sessionNome = Login::nomeLogado();
 }
 
-$prontuario = new Login();
+
+
+// Verificar se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $dt_consulta = $_POST['dt_consulta'];
+    // Receber as observações do formulário
+    $observacoes = $_POST['observacoes'];
     $cpf = $_POST['cpf'];
-    $idMedico = $sessionID;
-    // Chama a função para inserir o cadastro de pacientes
-    $prontuario->cadastroProntuario($dt_consulta, $idMedico, $cpf);
-    unset($prontuario);
+    $arquivo = $_FILES['arquivo'];
+
+    // Chamar a função para atualizar as observações no banco de dados
+    $paciente = new Login();
+    $paciente->atualizarObservacoesPaciente($cpf, $observacoes);
+    $paciente->uploadArquivo($cpf, $arquivo);
+    unset($paciente);
+
+    // Redirecionar ou exibir uma mensagem de sucesso
+    echo '<script>
+            alert("Observações atualizadas com sucesso!");
+            window.location.href = "cad_prontuario.php";
+            </script>';
 }
+
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -64,6 +77,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <span class="hide-menu">Guia de consultas</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./cad_prontuario.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-dashboard"></i>
+                                </span>
+                                <span class="hide-menu">Cadastro Consulta</span>
+                            </a>
+                        </li>
+                        <!-- divisao cadastro -->
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                             <span class="hide-menu">Cadastro</span>
@@ -82,6 +104,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     <i class="ti ti-dashboard"></i>
                                 </span>
                                 <span class="hide-menu">Cadastro Prontuarios</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./cad_medico.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-table"></i>
+                                </span>
+                                <span class="hide-menu">Cadastro Medicos</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./cad_hospital.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-table"></i>
+                                </span>
+                                <span class="hide-menu">Cadastro Hospitais</span>
                             </a>
                         </li>
                         <li class="nav-small-cap">
@@ -153,9 +191,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-icon-hover" href="javascript:void(0)">
-                                <i class="ti ti-bell-ringing"></i>
-                                <div class="notification bg-primary rounded-circle"></div>
+                            <a class="nav-link nav-icon-hover"
+                                href="javascript:console.log('javascript');alert('<?php echo $sessionNome; ?>')">
+                                <i class=" ti-bell-ringing">
+                                    <?php echo 'Dr(a) ' . $sessionNome; ?>
+                                </i>
                             </a>
                         </li>
                     </ul>
@@ -208,35 +248,65 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="row">
                     <div class="col-lg-12 d-flex align-items-stretch">
                         <div class="card w-100">
-                            <h1>Cadastro de Consulta</h1>
+                            <h1>Cadastro de Prontuário</h1>
                         </div>
                     </div>
                     <div class="container">
-                        <form method="post" action="">
+                        <form method="post" action="cad_prontuario_callOB.php">
                             <div class="form-group">
                                 <label for="cpf">CPF do paciente:</label>
                                 <input type="text" class="form-control" id="cpf" name="cpf" required>
                             </div>
                             <div class="form-group">
-                                <label for="dt_consulta">Data da consulta:</label>
-                                <input type="date" class="form-control" id="dt_consulta" name="dt_consulta" required>
+                                <label for=""></label>
+                            </div>
+                            <div class="form-group">
+                                <label for="observacoes">Observações:</label>
+                                <textarea class="form-control" id="observacoes" name="observacoes" rows="8"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for=""></label>
+                            </div>
 
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </form>
+                        <div class="form-group">
+                            <label for=""></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 d-flex align-items-stretch">
+                        <div class="card w-100">
+                            <h1>Envio de arquivos para anexar aos paciente</h1>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <form method="post" action="cad_prontuario_callAQ.php">
+                            <div class="form-group">
+                                <label for="cpf">CPF do paciente:</label>
+                                <input type="text" class="form-control" id="cpf" name="cpf" required>
+                            </div>
+                            <div class="form-group">
+                                <label for=""></label>
+                            </div>
+                            <div class="form-group">
+                                <label for=""></label>
+                            </div>
+                            <div class="form-group">
+                                <label for=""></label>
+                            </div>
+                            <div class="form-group">
+                                <label for="arquivo">Exames tamanho maximo 4mb:</label>
+                                <input type="file" class="form-control-file" id="arquivo" name="arquivo">
+                            </div>
+                            <div class="form-group">
+                                <label for=""></label>
                             </div>
                             <button type="submit" class="btn btn-primary">Salvar</button>
                         </form>
                     </div>
-
-
                 </div>
             </div>
-
-
             <!-- consulta nova -->
-
-
         </div>
         <script src="./libs/jquery/dist/jquery.min.js"></script>
         <script src="./libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

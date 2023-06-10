@@ -5,6 +5,9 @@ require_once 'class/func.php';
 if (!Login::estaLogado()) {
   header('Location: paciente.php');
   exit;
+} else {
+  $sessionID = Login::estaLogado();
+  $sessionNome = Login::nomeLogado();
 }
 
 $login = new Login();
@@ -67,6 +70,15 @@ if (isset($_POST['editar'])) {
                 <span class="hide-menu">Guia de consultas</span>
               </a>
             </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./cad_prontuario.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-dashboard"></i>
+                </span>
+                <span class="hide-menu">Cadastro Consulta</span>
+              </a>
+            </li>
+            <!-- divisao cadastro -->
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Cadastro</span>
@@ -85,6 +97,22 @@ if (isset($_POST['editar'])) {
                   <i class="ti ti-dashboard"></i>
                 </span>
                 <span class="hide-menu">Cadastro Prontuarios</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./cad_medico.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-table"></i>
+                </span>
+                <span class="hide-menu">Cadastro Medicos</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./cad_hospital.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-table"></i>
+                </span>
+                <span class="hide-menu">Cadastro Hospitais</span>
               </a>
             </li>
             <li class="nav-small-cap">
@@ -155,9 +183,11 @@ if (isset($_POST['editar'])) {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-icon-hover" href="javascript:void(0)">
-                <i class="ti ti-bell-ringing"></i>
-                <div class="notification bg-primary rounded-circle"></div>
+              <a class="nav-link nav-icon-hover"
+                href="javascript:console.log('javascript');alert('<?php echo $sessionNome; ?>')">
+                <i class=" ti-bell-ringing">
+                  <?php echo 'Dr(a) ' . $sessionNome; ?>
+                </i>
               </a>
             </li>
           </ul>

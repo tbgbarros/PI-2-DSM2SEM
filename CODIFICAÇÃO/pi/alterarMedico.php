@@ -3,7 +3,7 @@ session_start();
 require_once 'class/func.php';
 
 if (!Login::estaLogado()) {
-    header('Location: index.php');
+    header('Location: cad_medico.php');
     exit;
 } else {
     $sessionID = Login::estaLogado();
@@ -12,12 +12,32 @@ if (!Login::estaLogado()) {
 
 $paciente = new Login();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $cpf = $_POST['cpf'];
-    // Chama a função para inserir o cadastro de pacientes
-    $paciente->deletarPaciente($cpf);
-    unset($paciente);
-}
+    $crm = $_POST['crm'];
+    $result = $paciente->selectLinhacrm($crm);
 
+    if (!$result) {
+        echo "<script>alert('Não foram encontrados dados para esse CRM');</script>";
+        header("location: cad_medico.php");
+    } else {
+        // Chama a função para inserir o cadastro de pacientes
+        $nomemedico = $_POST['nomemedico'];
+        $dt_nasc = $_POST['dt_nasc'];
+        $sexo = $_POST['sexo'];
+        $telefone = $_POST['telefone'];
+        $especializacao = $_POST['especializacao'];
+        $naturalidade = $_POST['naturalidade'];
+        $unidade_op = $_POST['hospital'];
+        $endereco = $_POST['endereco'];
+        $cpf = $_POST['cpf'];
+        $senha = $_POST['senha'];
+
+        $paciente = new Login();
+        $paciente->updateMedico($nomemedico, $dtNasc, $sexo, $telefone, $crm, $especializacao, $naturalidade, $unidade_op, $endereco, $cpf, $senha);
+
+        unset($paciente);
+    }
+}
+$login = new Login();
 ?>
 
 
@@ -186,25 +206,85 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="row">
                     <div class="col-lg-12 d-flex align-items-stretch">
                         <div class="card w-100">
-                            <h1>Deletar cadastro de Paciente</h1>
+                            <h1>Alterar cadastro de Medico</h1>
                         </div>
                     </div>
 
                     <div class="container">
-                        <h3>Digite o CPF do paciente que deseja deletar o cadastro</h3>
+                        <h3>Digite o CRM do medico que deseja alterar</h3>
                         <form method="post" action="">
                             <div class="form-group">
-                                <label for="cpf">CPF:</label>
-                                <input type="text" class="form-control" id="cpf" name="cpf" required>
+                                <label for="crm">CRM:</label>
+                                <input type="text" class="form-control" id="crm" name="crm" required>
                             </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="endereco"></label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Deletar</button>
-                    </form>
-                </div>
+                            <div class="form-group">
+                                <label for=""></label>
+                            </div>
+                            <div class="form-group">
+                                <h3>Digite os dados que deseja alterar</h3>
+                            </div>
 
+
+                            <div class="container">
+                                <div class="form-group">
+                                    <label for="nomemedico">Nome:</label>
+                                    <input type="text" class="form-control" id="nomemedico" name="nomemedico" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dt_nasc">Data de Nascimento:</label>
+                                    <input type="date" class="form-control" id="dt_nasc" name="dt_nasc" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sexo">Sexo:</label>
+                                    <select class="form-control" id="sexo" name="sexo" required>
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Feminino">Feminino</option>
+                                        <option value="Outro">Outro</option>
+                                        <option value="Prefiro não informar">Prefiro não informar</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefone">Telefone:</label>
+                                    <input type="text" class="form-control" id="telefone" name="telefone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="especializacao">Especialização</label>
+                                    <input type="text" class="form-control" id="especializacao" name="especializacao"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="naturalidade">Naturalidade:</label>
+                                    <input type="text" class="form-control" id="naturalidade" name="naturalidade"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="hospital">Hospital:</label>
+                                    <select class="form-control" id="hospital" name="hospital">
+                                        <?php
+                                        $consult = new Login();
+                                        $consultaConsultas = $consult->buscarHospitais();
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="endereco">Endereço:</label>
+                                    <input type="text" class="form-control" id="endereco" name="endereco" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cpf">CPF:</label>
+                                    <input type="text" class="form-control" id="cpf" name="cpf" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="senha">Senha:</label>
+                                    <input type="password" class="form-control" id="senha" name="senha" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for=""></label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                        </form>
+                    </div>
+                </div>
 
             </div>
         </div>

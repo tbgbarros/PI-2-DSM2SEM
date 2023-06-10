@@ -41,7 +41,7 @@ class Login
 
         if ($resultado->num_rows == 1) {
             $dadosUsuario = $resultado->fetch_assoc();
-            $this->criarSessaoMedico($dadosUsuario['ID_medico'], $dadosUsuario['nome']);
+            $this->criarSessaoMedico($dadosUsuario['ID_medico'], $dadosUsuario['nomemedico']);
             return true;
         } else {
             return false;
@@ -69,7 +69,7 @@ class Login
 
     public static function nomeLogado()
     {
-        return ($_SESSION['nome']);
+        return ($_SESSION['nomemedico']);
     }
 
     public static function encerrarSessao()
@@ -148,6 +148,41 @@ class Login
 
     }
 
+    public function selectLinhacrm($crm)
+    {
+        $query = "SELECT * FROM medicos WHERE crm = ?";
+        $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->bind_param("s", $crm);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+
+        if ($resultado->num_rows == 1) {
+            $row = $resultado->fetch_assoc();
+            $result = $row['crm'];
+            return $result;
+        } else {
+            return false;
+        }
+    }
+
+    public function selectHospital($idhosp)
+    {
+        $query = "SELECT * FROM hospital WHERE ID_hospital = ?";
+        $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->bind_param("i", $idhosp);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+
+        if ($resultado->num_rows == 1) {
+            $row = $resultado->fetch_assoc();
+            $result = $row['ID_hospital'];
+            return $result;
+        } else {
+            return false;
+        }
+
+    }
+
     public function updatePaciente($nome, $dtNasc, $sexo, $telefone, $nomeMae, $naturalidade, $endereco, $cpf)
     {
         $upPaciente = "UPDATE pacientes SET nome = ?, dt_nasc = ?, sexo = ?, telefone = ?,
@@ -161,6 +196,37 @@ class Login
             window.location.href = "cad_paciente.php";
             </script>';
 
+        }
+    }
+
+    public function updateMedico($nomemedico, $dtNasc, $sexo, $telefone, $crm, $especializacao, $naturalidade, $unidade_op, $endereco, $cpf, $senha)
+    {
+        $upPaciente = "UPDATE medico SET nomemedico = ?, dt_nasc = ?, sexo = ?, telefone = ?,
+         crm = ?, especializacao = ?, naturalidade = ?, unidade_op = ?, endereco = ?, cpf = ?, senha = ? WHERE crm = ?";
+        $stmt = $this->connect->getConexao()->prepare($upPaciente);
+        $stmt->bind_param("sibssssssssss", $nomemedico, $dtNasc, $sexo, $telefone, $crm, $especializacao, $naturalidade, $unidade_op, $endereco, $cpf, $senha);
+        $stmt->execute();
+        if ($stmt->affected_rows > 0) {
+            echo '<script>
+            alert("Dados inseridos com sucesso!");
+            window.location.href = "cad_paciente.php";
+            </script>';
+
+        }
+    }
+
+    //update hospital
+    public function updateHospital($ID_hospital, $nome_hospital, $endereco, $telefone, $responsavel)
+    {
+        $upHospital = "UPDATE hospital SET nome_hospital = ?, endereco = ?, telefone = ?, responsavel = ? WHERE ID_hospital = ?";
+        $stmt = $this->connect->getConexao()->prepare($upHospital);
+        $stmt->bind_param("sssss", $ID_hospital, $nome_hospital, $endereco, $telefone, $responsavel);
+        $stmt->execute();
+        if ($stmt->affected_rows > 0) {
+            echo '<script>
+            alert("Dados inseridos com sucesso!");
+            window.location.href = "cad_hospital.php";
+            </script>';
         }
     }
 
@@ -276,6 +342,21 @@ class Login
         }
     }
 
+    function buscarNomesHospitais()
+    {
+        $query = "SELECT ID_hospital, nome_hospital FROM hospital";
+        $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $options = '';
+        while ($hospital = $result->fetch_assoc()) {
+            $options .= '<option value="' . $hospital['ID_hospital'] . '">' . $hospital['nome_hospital'] . '</option>';
+        }
+
+        return $options;
+    }
+
     function buscarSexoPaciente()
     {
         $query = "SELECT ID_hospital, nome_hospital FROM pacientes";
@@ -321,5 +402,94 @@ class Login
         }
         $stmt->close();
     }
+
+    function atualizarObservacoesPaciente($cpf, $observacoes)
+    {
+        $query = "UPDATE pacientes SET observacoes = ? WHERE cpf = ?";
+        $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->bind_param("ss", $observacoes, $cpf);
+        $stmt->execute();
+
+        if ($stmt->affected_rows > 0) {
+            echo '<script>
+            alert("Observações atualizadas com sucesso!");
+            window.location.href = "cad_prontuario.php";
+            </script>';
+        } else {
+            echo '<script>
+            alert("Falha ao atualizar observações.");
+            window.location.href = "cad_prontuario.php";
+            </script>';
+        }
+    }
+
+    public function inserirArquivoPaciente($cpf, $conteudo_arquivo)
+    {
+        $query = "UPDATE pacientes SET arquivo = ? WHERE cpf = ?";
+        $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->bind_param("ss", $conteudo_arquivo, $cpf);
+        $stmt->execute();
+
+        if ($stmt->affected_rows > 0) {
+            echo '<script>
+            alert("Arquivo inserido com sucesso!");
+            window.location.href = "cad_paciente.php";
+            </script>';
+        } else {
+            echo '<script>
+            alert("Erro ao inserir arquivo no banco de dados.");
+            window.location.href = "cad_prontuario.php";
+            </script>';
+        }
+    }
+
+    function uploadArquivo($cpf, $arquivo)
+    {
+        // Verifica se o arquivo foi enviado corretamente
+        if ($arquivo['error'] !== UPLOAD_ERR_OK) {
+            //echo '<script>
+            //alert("Erro ao inserir arquivo no banco de dados.");
+            //window.location.href = "cad_prontuario.php";
+            //</script>';
+            return false;
+        }
+
+        // Define o diretório de destino para salvar os arquivos
+        $diretorioDestino = "./arquivos/bd";
+
+        // Gera um nome único para o arquivo
+        $nomeArquivo = uniqid() . "_" . $arquivo['name'];
+
+        // Move o arquivo temporário para o diretório de destino
+        if (move_uploaded_file($arquivo['tmp_name'], $diretorioDestino . $nomeArquivo)) {
+            // Insere os dados na tabela "armazena"
+            $query = "INSERT INTO armazena (ID_arquivos, cpf) VALUES (?, ?)";
+            $stmt = $this->connect->getConexao()->prepare($query);
+            $stmt->bind_param("is", $nomeArquivo, $cpf);
+            $stmt->execute();
+
+            if ($stmt->affected_rows > 0) {
+                echo '<script>
+                    alert("Arquivo enviado e dados armazenados com sucesso.");
+                    window.location.href = "cad_prontuario.php";
+                    </script>';
+
+                return true;
+            } else {
+                echo '<script>
+                    alert("Erro ao armazenar os dados do arquivo.");
+                    window.location.href = "cad_prontuario.php";
+                    </script>';
+                return false;
+            }
+        } else {
+            echo '<script>
+                    alert("Erro ao mover o arquivo para o destino.");
+                    window.location.href = "cad_prontuario.php";
+                    </script>';
+            return false;
+        }
+    }
+
 
 }

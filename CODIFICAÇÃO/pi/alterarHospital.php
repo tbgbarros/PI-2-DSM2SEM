@@ -3,21 +3,38 @@ session_start();
 require_once 'class/func.php';
 
 if (!Login::estaLogado()) {
-    header('Location: index.php');
+    header('Location: cad_hospital.php');
     exit;
 } else {
     $sessionID = Login::estaLogado();
     $sessionNome = Login::nomeLogado();
 }
 
-$paciente = new Login();
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $cpf = $_POST['cpf'];
-    // Chama a função para inserir o cadastro de pacientes
-    $paciente->deletarPaciente($cpf);
-    unset($paciente);
-}
 
+$hospital = new Login();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $idhosp = $_POST['hospital'];
+    $hospitalSelecionado = $hospital->selectHospital($idhosp);
+
+    if (!$hospitalSelecionado) {
+        echo "<script>alert('Hospital nao encontrado');</script>";
+        header("location: cad_hospital.php");
+    } else {
+        // Chama a função para inserir o cadastro de pacientes
+        $ID_hospital = $_POST['hospital'];
+        $nome_hospital = $_POST['nome_hospital'];
+        $endereco = $_POST['endereco'];
+        $telefone = $_POST['telefone'];
+        $responsavel = $_POST['responsavel'];
+
+
+        $hospitalAtualizado = new Login();
+        $hospitalAtualizado->updateHospital($ID_hospital, $nome_hospital, $endereco, $telefone, $responsavel);
+        unset($hospitalAtualizado);
+    }
+}
+$login = new Login();
 ?>
 
 
@@ -127,9 +144,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-icon-hover" href="javascript:void(0)">
-                                <i class="ti ti-bell-ringing"></i>
-                                <div class="notification bg-primary rounded-circle"></div>
+                            <a class="nav-link nav-icon-hover"
+                                href="javascript:console.log('javascript');alert('<?php echo $sessionNome; ?>')">
+                                <i class=" ti-bell-ringing">
+                                    <?php echo 'Dr(a) ' . $sessionNome; ?>
+                                </i>
                             </a>
                         </li>
                     </ul>
@@ -177,57 +196,90 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </nav>
             </header>
             <!--  Header End -->
-
-
-
-
             <div class="container-fluid">
                 <!--  Row 1 -->
                 <div class="row">
                     <div class="col-lg-12 d-flex align-items-stretch">
                         <div class="card w-100">
-                            <h1>Deletar cadastro de Paciente</h1>
+                            <h1>Alterar cadastro de Hospitais</h1>
                         </div>
                     </div>
-
                     <div class="container">
-                        <h3>Digite o CPF do paciente que deseja deletar o cadastro</h3>
+                    </div>
+                    <div class="container">
                         <form method="post" action="">
                             <div class="form-group">
-                                <label for="cpf">CPF:</label>
-                                <input type="text" class="form-control" id="cpf" name="cpf" required>
+                                <label for="hospital">Nome dos Hospital:</label>
+                                <select class="form-control" id="hospital" name="hospital">
+                                    <?php
+                                    $consult = new Login();
+                                    $consultaConsultas = $consult->buscarHospitais();
+                                    ?>
+                                </select>
                             </div>
+                            <div class="form-group">
+                                <label for="nome_hospital">Altere o nome do hospital:</label>
+                                <input type="text" class="form-control" id="nome_hospital" name="nome_hospital"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="endereco">Endereço:</label>
+                                <input type="text" class="form-control" id="endereco" name="endereco" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone:</label>
+                                <input type="text" class="form-control" id="telefone" name="telefone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="responsavel">Responsavel:</label>
+                                <input type="text" class="form-control" id="responsavel" name="responsavel" required>
+                            </div>
+                            <div class="form-group">
+                                <label for=""></label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </form>
+                        <div class="form-group">
+                            <label for=""></label>
+                        </div>
+                        <a href="alterarHospital.php">
+                            <button type="submit" class="btn btn-primary">
+                                Alterar cadastro
+                            </button>
+                        </a>
+                        <div class="form-group">
+                            <label for=""></label>
+                        </div>
+                        <a href="deletarMedico.php">
+                            <button type="submit" class="btn btn-primary">
+                                Deletar cadastro
+                            </button>
+                        </a>
                     </div>
-                    <div class="form-group">
-                        <label for="endereco"></label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Deletar</button>
-                    </form>
+
+
                 </div>
-
-
             </div>
+
+
+            <!-- consulta nova -->
+
+
         </div>
-
-
-        <!-- consulta nova -->
-
-
-    </div>
-    <script src="./libs/jquery/dist/jquery.min.js"></script>
-    <script src="./libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./js/sidebarmenu.js"></script>
-    <script src="./js/config.js"></script>
-    <script src="./js/app.min.js"></script>
-    <script src="./libs/apexcharts/dist/apexcharts.min.js"></script>
-    <script src="./libs/simplebar/dist/simplebar.js"></script>
-    <script src="./js/dashboard.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+        <script src="./libs/jquery/dist/jquery.min.js"></script>
+        <script src="./libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="./js/sidebarmenu.js"></script>
+        <script src="./js/config.js"></script>
+        <script src="./js/app.min.js"></script>
+        <script src="./libs/apexcharts/dist/apexcharts.min.js"></script>
+        <script src="./libs/simplebar/dist/simplebar.js"></script>
+        <script src="./js/dashboard.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>

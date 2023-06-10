@@ -1,5 +1,14 @@
 <?php
-require_once 'class/connectMedico.php';
+session_start();
+require_once 'class/func.php';
+
+if (!Login::estaLogado()) {
+    header('Location: paciente.php');
+    exit;
+} else {
+    $sessionID = Login::estaLogado();
+    $sessionNome = Login::nomeLogado();
+}
 ?>
 
 <!doctype html>
