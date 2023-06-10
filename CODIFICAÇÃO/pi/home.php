@@ -148,6 +148,18 @@ if (!Login::estaLogado()) {
                 <span class="hide-menu">Hospitais</span>
               </a>
             </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Administrador</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./cad_medico.php" aria-expanded="false">
+                <span>
+                  <i class="ti ti-mood-happy"></i>
+                </span>
+                <span class="hide-menu">Cadastro de usuarios</span>
+              </a>
+            </li>
           </ul>
 
         </nav>

@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $login = new Login();
 
     if ($login->autenticar($usuario, $senha)) {
-        header('Location: home.php');
+        header('Location: homeadm.php');
         exit;
     } else {
         $mensagemErro = "Usuário ou senha inválidos";

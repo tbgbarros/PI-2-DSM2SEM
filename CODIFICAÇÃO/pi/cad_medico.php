@@ -245,8 +245,14 @@ if (!Login::estaLogado()) {
                                 <input type="text" class="form-control" id="nomemedico" name="nomemedico" required>
                             </div>
                             <div class="form-group">
+                                <label for=""></label>
+                            </div>
+                            <div class="form-group">
                                 <label for="dt_nasc">Data de Nascimento:</label>
                                 <input type="date" class="form-control" id="dt_nasc" name="dt_nasc" required>
+                            </div>
+                            <div class="form-group">
+                                <label for=""></label>
                             </div>
                             <div class="form-group">
                                 <label for="sexo">Sexo:</label>
@@ -258,12 +264,21 @@ if (!Login::estaLogado()) {
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for=""></label>
+                            </div>
+                            <div class="form-group">
                                 <label for="telefone">Telefone:</label>
                                 <input type="text" class="form-control" id="telefone" name="telefone" required>
                             </div>
                             <div class="form-group">
+                                <label for=""></label>
+                            </div>
+                            <div class="form-group">
                                 <label for="crm">CRM:</label>
                                 <input type="text" class="form-control" id="crm" name="crm" required>
+                            </div>
+                            <div class="form-group">
+                                <label for=""></label>
                             </div>
                             <div class="form-group">
                                 <label for="especializacao">Especializacao:</label>
@@ -271,8 +286,14 @@ if (!Login::estaLogado()) {
                                     required>
                             </div>
                             <div class="form-group">
+                                <label for=""></label>
+                            </div>
+                            <div class="form-group">
                                 <label for="naturalidade">Naturalidade:</label>
                                 <input type="text" class="form-control" id="naturalidade" name="naturalidade" required>
+                            </div>
+                            <div class="form-group">
+                                <label for=""></label>
                             </div>
                             <div class="form-group">
                                 <label for="hospital">Hospital:</label>
@@ -284,12 +305,21 @@ if (!Login::estaLogado()) {
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for=""></label>
+                            </div>
+                            <div class="form-group">
                                 <label for="endereco">Endereço:</label>
                                 <input type="text" class="form-control" id="endereco" name="endereco" required>
                             </div>
                             <div class="form-group">
+                                <label for=""></label>
+                            </div>
+                            <div class="form-group">
                                 <label for="cpf">CPF:</label>
                                 <input type="text" class="form-control" id="cpf" name="cpf" required>
+                            </div>
+                            <div class="form-group">
+                                <label for=""></label>
                             </div>
                             <div class="form-group">
                                 <label for="senha">Senha:</label>
@@ -298,8 +328,20 @@ if (!Login::estaLogado()) {
                             <div class="form-group">
                                 <label for=""></label>
                             </div>
+                            <div class="form-group">
+                                <label for=""></label>
+                            </div>
+                            <div class="form-group">
+                                <label for=""></label>
+                            </div>
                             <button type="submit" class="btn btn-primary">Salvar</button>
                         </form>
+                        <div class="form-group">
+                            <label for=""></label>
+                        </div>
+                        <div class="form-group">
+                            <label for=""></label>
+                        </div>
                         <div class="form-group">
                             <label for=""></label>
                         </div>

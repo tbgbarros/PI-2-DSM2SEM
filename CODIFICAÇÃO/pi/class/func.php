@@ -67,6 +67,11 @@ class Login
         return ($_SESSION['ID_usuario']);
     }
 
+    public static function estaLogadoADM()
+    {
+        return ($_SESSION['usuario']);
+    }
+
     public static function nomeLogado()
     {
         return ($_SESSION['nomemedico']);
