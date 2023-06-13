@@ -1,4 +1,5 @@
 <?php
+
 use LDAP\Result;
 
 require_once('infocon.php');
@@ -150,7 +151,6 @@ class Login
         } else {
             return false;
         }
-
     }
 
     public function selectLinhacrm($crm)
@@ -185,7 +185,6 @@ class Login
         } else {
             return false;
         }
-
     }
 
     public function updatePaciente($nome, $dtNasc, $sexo, $telefone, $nomeMae, $naturalidade, $endereco, $cpf)
@@ -200,7 +199,6 @@ class Login
             alert("Dados inseridos com sucesso!");
             window.location.href = "cad_paciente.php";
             </script>';
-
         }
     }
 
@@ -216,7 +214,6 @@ class Login
             alert("Dados inseridos com sucesso!");
             window.location.href = "cad_paciente.php";
             </script>';
-
         }
     }
 
@@ -246,8 +243,6 @@ class Login
             alert("Dados excluidoscom sucesso!");
             window.location.href = "cad_paciente.php";
             </script>';
-
-
         } else {
             echo '<script>
         alert("Não foi possível excluir os dados!");
@@ -269,7 +264,6 @@ class Login
         window.location.href = "cad_prontuario.php";
         </script>';
         }
-
     }
 
     //listar consultas JOIN
@@ -496,5 +490,23 @@ class Login
         }
     }
 
+    function ulConsultas()
+    {
+        $query = "CALL buscar_ultimas_consultas()";
+        $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->bind_param("isssss", $dt_consulta, $crm, $nomemedico, $nome, $cpf, $observacoes);
+        $stmt->execute();
 
+        if ($stmt->affected_rows > 0) {
+            echo '<script>
+            alert("Observações atualizadas com sucesso!");
+            window.location.href = "";
+            </script>';
+        } else {
+            echo '<script>
+            alert("Falha ao atualizar observações.");
+            window.location.href = "";
+            </script>';
+        }
+    }
 }
