@@ -24,8 +24,7 @@ if (!Login::estaLogado()) {
 
 <body>
   <!--  class body css modificado -->
-  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-    data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
     <!-- barra lateral  nao consegui corrigir o bug do mobile ainda -->
 
     <!-- vou ocultar o logo versão mobile-->
@@ -34,7 +33,7 @@ if (!Login::estaLogado()) {
         <!-- logo esta bugado vou deixar sem por enquanto / se corrigir da pra tentar puxar imagem do cadastro no banco de dados | bootstrap aqui-->
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="./home.php" class="text-nowrap logo-img">
-            <img src="./images/logos/logo_padrao.svg" width="180" alt="" />
+            <img src="./images/logos/logo_padrao.svg" width="120" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -120,14 +119,7 @@ if (!Login::estaLogado()) {
                 <span class="hide-menu">Prontuarios</span>
               </a>
             </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./relatorios.php" aria-expanded="false">
-                <span>
-                  <i class="ti ti-cards"></i>
-                </span>
-                <span class="hide-menu">Relatorios</span>
-              </a>
-            </li>
+
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Medico</span>
@@ -149,15 +141,15 @@ if (!Login::estaLogado()) {
               </a>
             </li>
             <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">Administrador</span>
+              <i class=""></i>
+              <span class="hide-menu"></span>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="./cad_medico.php" aria-expanded="false">
                 <span>
-                  <i class="ti ti-mood-happy"></i>
+                  <i class=""></i>
                 </span>
-                <span class="hide-menu">Cadastro de usuarios</span>
+                <span class="hide-menu"></span>
               </a>
             </li>
           </ul>
@@ -181,8 +173,7 @@ if (!Login::estaLogado()) {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-icon-hover"
-                href="javascript:console.log('javascript');alert('<?php echo $sessionNome; ?>')">
+              <a class="nav-link nav-icon-hover" href="javascript:console.log('javascript');alert('<?php echo $sessionNome; ?>')">
                 <i class=" ti-bell-ringing">
                   <?php echo 'Dr(a) ' . $sessionNome; ?>
                 </i>
@@ -199,8 +190,7 @@ if (!Login::estaLogado()) {
                   </script>Sair
                 </button></a>
               <li class="nav-item dropdown">
-                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
-                  aria-expanded="false">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
                   <img src="./images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
@@ -256,8 +246,7 @@ if (!Login::estaLogado()) {
                       <div class="col-8">
                         <h4 class="fw-semibold mb-3">60</h4>
                         <div class="d-flex align-items-center mb-3">
-                          <span
-                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                          <span class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
                             <i class="ti ti-arrow-up-left text-success"></i>
                           </span>
                           <p class="text-dark me-1 fs-3 mb-0">+9%</p>
@@ -292,8 +281,7 @@ if (!Login::estaLogado()) {
                         <h5 class="card-title mb-9 fw-semibold"> Consultas mensais </h5>
                         <h4 class="fw-semibold mb-3">17</h4>
                         <div class="d-flex align-items-center pb-1">
-                          <span
-                            class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
+                          <span class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
                             <i class="ti ti-arrow-down-right text-danger"></i>
                           </span>
                           <p class="text-dark me-1 fs-3 mb-0">+2%</p>
@@ -302,8 +290,7 @@ if (!Login::estaLogado()) {
                       </div>
                       <div class="col-4">
                         <div class="d-flex justify-content-end">
-                          <div
-                            class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
+                          <div class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
                             <i class="ti ti-currency-dollar fs-6"></i>
                           </div>
                         </div>
@@ -339,8 +326,7 @@ if (!Login::estaLogado()) {
                       <span class="timeline-badge border-2 border border-info flex-shrink-0 my-8"></span>
                       <span class="timeline-badge-border d-block flex-shrink-0"></span>
                     </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada <a
-                        href="javascript:void(0)" class="text-primary d-block fw-normal">#ML-3467</a>
+                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada <a href="javascript:void(0)" class="text-primary d-block fw-normal">#ML-3467</a>
                     </div>
                   </li>
                   <li class="timeline-item d-flex position-relative overflow-hidden">
@@ -357,8 +343,7 @@ if (!Login::estaLogado()) {
                       <span class="timeline-badge border-2 border border-warning flex-shrink-0 my-8"></span>
                       <span class="timeline-badge-border d-block flex-shrink-0"></span>
                     </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada <a
-                        href="javascript:void(0)" class="text-primary d-block fw-normal">#ML-3467</a>
+                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada <a href="javascript:void(0)" class="text-primary d-block fw-normal">#ML-3467</a>
                     </div>
                   </li>
                   <li class="timeline-item d-flex position-relative overflow-hidden">
@@ -467,6 +452,7 @@ if (!Login::estaLogado()) {
                           <h6 class="fw-semibold mb-0 fs-4">$12.8k</h6>
                         </td>
                       </tr>
+
                       <tr>
                         <td class="border-bottom-0">
                           <h6 class="fw-semibold mb-0">4</h6>

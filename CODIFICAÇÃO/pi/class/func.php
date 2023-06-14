@@ -87,7 +87,7 @@ class Login
 
     public function listarPaciente()
     {
-        $query = "SELECT * FROM pacientes";
+        $query = "SELECT * FROM pacientes order by nome asc";
         $stmt = $this->connect->getConexao()->prepare($query);
         $stmt->execute();
         $resultadoPacientes = $stmt->get_result();
@@ -445,26 +445,22 @@ class Login
     function uploadArquivo($cpf, $arquivo)
     {
         // Verifica se o arquivo foi enviado corretamente
-        if ($arquivo['error'] !== UPLOAD_ERR_OK) {
-            //echo '<script>
-            //alert("Erro ao inserir arquivo no banco de dados.");
-            //window.location.href = "cad_prontuario.php";
-            //</script>';
-            return false;
-        }
+        //if ($arquivo['error'] !== UPLOAD_ERR_OK) {
+        //echo '<script>
+        //alert("Erro ao inserir arquivo no banco de dados.");
+        //window.location.href = "cad_prontuario.php";
+        //</script>';
+        //return false;
+        //}
 
         // Define o diretório de destino para salvar os arquivos
         $diretorioDestino = "./arquivos/bd";
 
-        // Gera um nome único para o arquivo
-        $nomeArquivo = uniqid() . "_" . $arquivo['name'];
-
-        // Move o arquivo temporário para o diretório de destino
-        if (move_uploaded_file($arquivo['tmp_name'], $diretorioDestino . $nomeArquivo)) {
+        if (move_uploaded_file($arquivo['tmp_name'], $diretorioDestino . '/' . $arquivo['name'])) {
             // Insere os dados na tabela "armazena"
             $query = "INSERT INTO armazena (ID_arquivos, cpf) VALUES (?, ?)";
             $stmt = $this->connect->getConexao()->prepare($query);
-            $stmt->bind_param("is", $nomeArquivo, $cpf);
+            $stmt->bind_param("is", $arquivo, $cpf);
             $stmt->execute();
 
             if ($stmt->affected_rows > 0) {

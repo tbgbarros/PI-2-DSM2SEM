@@ -15,15 +15,20 @@ if (!Login::estaLogado()) {
 // Verificar se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cpf = $_POST['cpf'];
-    $arquivo = $_FILES['arquivo']['tmp_name'];
+    $arquivo = $_POST['arquivo'];
+    print_r($cpf);
+    print_r($arquivo);
     // Ler o conteúdo do arquivo
-    $conteudo_arquivo = file_get_contents($arquivo);
+    //$conteudo_arquivo = file_get_contents($arquivo);
+
 
     // Codificar o conteúdo em base64 para armazenamento no banco de dados
-    $conteudo_arquivo_codificado = base64_encode($conteudo_arquivo);
+    //$conteudo_arquivo_codificado = base64_encode($conteudo_arquivo);
+
+    //print_r($conteudo_arquivo_codificado);
     // Chamar a função para atualizar as observações no banco de dados
     $paciente = new Login();
-    $paciente->uploadArquivo($cpf, $conteudo_arquivo_codificado);
+    $paciente->uploadArquivo($cpf, $arquivo);
     unset($paciente);
 
     // Redirecionar ou exibir uma mensagem de sucesso
