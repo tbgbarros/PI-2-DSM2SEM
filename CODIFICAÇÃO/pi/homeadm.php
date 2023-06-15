@@ -1,13 +1,7 @@
 <?php
 session_start();
 require_once 'class/func.php';
-
-if (!Login::estaLogado()) {
-    header('Location: index.php');
-    exit;
-} else {
-    $sessionID = Login::estaLogado();
-}
+require_once 'class/log_consult.php';
 ?>
 <!doctype html>
 <html lang="pt-br">

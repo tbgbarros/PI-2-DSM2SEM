@@ -1,14 +1,7 @@
 <?php
 session_start();
 require_once 'class/func.php';
-
-if (!Login::estaLogado()) {
-  header('Location: index.php');
-  exit;
-} else {
-  $sessionID = Login::estaLogado();
-  $sessionNome = Login::nomeLogado();
-}
+require_once 'class/log_consult.php';
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -35,9 +28,6 @@ if (!Login::estaLogado()) {
           <a href="./home.php" class="text-nowrap logo-img">
             <img src="./images/logos/home.svg" width="120" alt="" />
           </a>
-          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-            <i class="ti ti-x fs-8"></i>
-          </div>
         </div>
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">

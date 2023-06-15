@@ -1,14 +1,8 @@
 <?php
 session_start();
 require_once 'class/func.php';
+require_once 'class/log_consult.php';
 
-if (!Login::estaLogado()) {
-    header('Location: cad_hospital.php');
-    exit;
-} else {
-    $sessionID = Login::estaLogado();
-    $sessionNome = Login::nomeLogado();
-}
 
 
 $hospital = new Login();

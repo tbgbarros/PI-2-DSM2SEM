@@ -1,11 +1,7 @@
 <?php
 session_start();
 require_once 'class/func.php';
-
-if (!Login::estaLogado()) {
-    header('Location: paciente.php');
-    exit;
-}
+require_once 'class/log_consult.php';
 
 $login = new Login();
 
@@ -20,5 +16,3 @@ if (isset($_POST['Editar'])) {
     $endereco = $_POST['endereco'];
     $cpf = $_POST['cpf'];
 }
-
-?>

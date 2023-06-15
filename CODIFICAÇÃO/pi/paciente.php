@@ -1,14 +1,7 @@
 <?php
 session_start();
 require_once 'class/func.php';
-
-if (!Login::estaLogado()) {
-  header('Location: paciente.php');
-  exit;
-} else {
-  $sessionID = Login::estaLogado();
-  $sessionNome = Login::nomeLogado();
-}
+require_once 'class/log_consult.php';
 
 $login = new Login();
 //formulario para editar, verificacao 
