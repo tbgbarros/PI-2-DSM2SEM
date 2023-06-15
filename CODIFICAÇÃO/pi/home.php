@@ -76,14 +76,6 @@ if (!Login::estaLogado()) {
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./cad_prontuario.php" aria-expanded="false">
-                <span>
-                  <i class="ti ti-dashboard"></i>
-                </span>
-                <span class="hide-menu">Cadastro Prontuarios</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
               <a class="sidebar-link" href="./cad_medico.php" aria-expanded="false">
                 <span>
                   <i class="ti ti-table"></i>
