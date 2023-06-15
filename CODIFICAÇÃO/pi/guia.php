@@ -236,50 +236,38 @@ if (isset($_POST['editar'])) {
             <hr>
             <div class="table-responsive">
               <table class="table table-sm table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th>Paciente</th>
-                    <th>CPF</th>
-                    <th>Sexo</th>
-                    <th>Fone Paciente</th>
-                    <th>Data consulta</th>
-                    <th>CRM Medico</th>
-                    <th>Nome Medico</th>
-                    <th>Especialização</th>
-                    <th>Hospital</th>
-                  </tr>
-                </thead>
+
                 <div class="col-lg-8 d-flex align-items-stretch">
                   <div class="card w-100">
                     <div class="card-body p-4">
-                      <h5 class="card-title fw-semibold mb-4">Consultas Recentes</h5>
+                      <h5 class="card-title fw-semibold mb-4"> Consultas Recentes</h5>
                       <div class="table-responsive">
-                        <table class="table text-nowrap mb-0 align-middle">
+                        <table class="table  mb-0 align-middle">
                           <thead class="text-dark fs-4">
                             <tr>
                               <th class="border-bottom-0">
-                                <h6 class="fw-semibold mb-0">Paciente</h6>
+                                <h6 class="fw-semibold mb-0"><span class='badge bg-dark rounded-3 '>Paciente</span></h6>
                               </th>
                               <th class="border-bottom-0">
-                                <h6 class="fw-semibold mb-0">CPF</h6>
+                                <h6 class="fw-semibold mb-0"><span class='badge bg-dark rounded-3 fw-semibold'>CPF</span></h6>
                               </th>
                               <th class="border-bottom-0">
-                                <h6 class="fw-semibold mb-0">Sexo</h6>
+                                <h6 class="fw-semibold mb-0"><span class='badge bg-dark rounded-3 '>Sexo</span></h6>
                               </th>
                               <th class="border-bottom-0">
-                                <h6 class="fw-semibold mb-0">Fone Paciente</h6>
+                                <h6 class="fw-semibold mb-0"><span class='badge bg-dark rounded-3 '>Fone Paciente</span></h6>
                               </th>
                               <th class="border-bottom-0">
-                                <h6 class="fw-semibold mb-0">Data consulta</h6>
+                                <h6 class="fw-semibold mb-0"><span class='badge bg-dark rounded-3 '>Data consulta</span></h6>
                               </th>
                               <th class="border-bottom-0">
-                                <h6 class="fw-semibold mb-0">Nome Medico</h6>
+                                <h6 class="fw-semibold mb-0"><span class='badge bg-dark rounded-3 '>Nome Medico</span></h6>
                               </th>
                               <th class="border-bottom-0">
-                                <h6 class="fw-semibold mb-0">Especialização</h6>
+                                <h6 class="fw-semibold mb-0"><span class='badge bg-dark rounded-3 '>Especialização</span></h6>
                               </th>
                               <th class="border-bottom-0">
-                                <h6 class="fw-semibold mb-0">Hospital</h6>
+                                <h6 class="fw-semibold mb-0"><span class='badge bg-dark rounded-3 '>Hospital</span></h6>
                               </th>
                             </tr>
                           </thead>
@@ -311,8 +299,8 @@ if (isset($_POST['editar'])) {
                                    </div>
                                   </td>";
                                   echo "<td>
-                                    <div class='d-flex align-items-center gap-2'>
-                                      <span class='badge bg-secondary rounded-3 fw-semibold'>"
+                                    <div class='d-flex align-items-center gap-3'>
+                                      <span class='badge bg-secondary rounded-2 fw-semibold'>"
                                     . $row["sexo"] .
                                     "</span>
                                     </div>
