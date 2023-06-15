@@ -57,7 +57,7 @@ if (!Login::estaLogado()) {
             <li class="sidebar-item">
               <a class="sidebar-link" href="./cad_prontuario.php" aria-expanded="false">
                 <span>
-                  <i class="ti ti-dashboard"></i>
+                  <i class="ti ti-bookmarks"></i>
                 </span>
                 <span class="hide-menu">Cadastro Consulta</span>
               </a>
@@ -70,7 +70,7 @@ if (!Login::estaLogado()) {
             <li class="sidebar-item">
               <a class="sidebar-link" href="./cad_paciente.php" aria-expanded="false">
                 <span>
-                  <i class="ti ti-layout"></i>
+                  <i class="ti ti-address-book"></i>
                 </span>
                 <span class="hide-menu">Cadastro Paciente</span>
               </a>
@@ -78,7 +78,7 @@ if (!Login::estaLogado()) {
             <li class="sidebar-item">
               <a class="sidebar-link" href="./cad_medico.php" aria-expanded="false">
                 <span>
-                  <i class="ti ti-table"></i>
+                  <i class="ti ti-medical-cross"></i>
                 </span>
                 <span class="hide-menu">Cadastro Medicos</span>
               </a>
@@ -86,7 +86,7 @@ if (!Login::estaLogado()) {
             <li class="sidebar-item">
               <a class="sidebar-link" href="./cad_hospital.php" aria-expanded="false">
                 <span>
-                  <i class="ti ti-package"></i>
+                  <i class="ti ti-building-hospital"></i>
                 </span>
                 <span class="hide-menu">Cadastro Hospitais</span>
               </a>
@@ -98,7 +98,7 @@ if (!Login::estaLogado()) {
             <li class="sidebar-item">
               <a class="sidebar-link" href="./paciente.php" aria-expanded="false">
                 <span>
-                  <i class="ti ti-article"></i>
+                  <i class="ti ti-meteor"></i>
                 </span>
                 <span class="hide-menu">Pacientes</span>
               </a>
@@ -106,7 +106,7 @@ if (!Login::estaLogado()) {
             <li class="sidebar-item">
               <a class="sidebar-link" href="./prontuario.php" aria-expanded="false">
                 <span>
-                  <i class="ti ti-alert-circle"></i>
+                  <i class="ti ti-report-medical"></i>
                 </span>
                 <span class="hide-menu">Prontuarios</span>
               </a>
@@ -119,7 +119,7 @@ if (!Login::estaLogado()) {
             <li class="sidebar-item">
               <a class="sidebar-link" href="./guiamedico.php" aria-expanded="false">
                 <span>
-                  <i class="ti ti-mood-happy"></i>
+                  <i class="ti ti-book-2"></i>
                 </span>
                 <span class="hide-menu">Guia medico</span>
               </a>
@@ -127,7 +127,7 @@ if (!Login::estaLogado()) {
             <li class="sidebar-item">
               <a class="sidebar-link" href="./hospitais.php" aria-expanded="false">
                 <span>
-                  <i class="ti ti-aperture"></i>
+                  <i class="ti ti-building-hospital"></i>
                 </span>
                 <span class="hide-menu">Hospitais</span>
               </a>
