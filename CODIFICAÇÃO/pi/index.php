@@ -28,8 +28,8 @@ require_once 'class/connectMedico.php';
                     <div class="col-md-8 col-lg-6 col-xxl-3">
                         <div class="card mb-0">
                             <div class="card-body">
-                                <a href="./home.php" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                                    <img src="./images/logos/home.svg" width="180" alt="">
+                                <a href="./index.php" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                                    <img src="./images/logos/home.svg" width="100" alt="">
                                 </a>
                                 <p class="text-center">Prontuários Online</p>
                                 <form method="post">

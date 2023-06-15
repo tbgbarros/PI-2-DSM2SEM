@@ -28,10 +28,10 @@ require_once 'class/connect.php';
           <div class="col-md-8 col-lg-6 col-xxl-3">
             <div class="card mb-0">
               <div class="card-body">
-                <a href="./home.php" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                  <img src="./images/logos/admin.svg" width="180" alt="">
+                <a href="./index.php" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                  <img src="./images/logos/admin.svg" width="100" alt="">
                 </a>
-                <p class="text-center">Prontuários Online</p>
+                <p class="text-center">Painel do Administrador</p>
                 <form method="post">
                   <div class="mb-3">
                     <label for="usuario" class="form-label">Usuário</label>
@@ -51,13 +51,16 @@ require_once 'class/connect.php';
 
                   </div>
 
-                  <a class=""><button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">PACIENTE
-                      ENTRAR</button></a>
-                  <div class="d-flex align-items-center justify-content-center">
-                    <p class="fs-4 mb-0 fw-bold">Não tem uma conta? Contate o administrador</p>
-
-                  </div>
+                  <a class="">
+                    <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">PACIENTE
+                      ENTRAR
+                    </button>
+                  </a>
                 </form>
+                <a class="" href="./index.php">
+                  <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">VOLTAR
+                  </button>
+                </a>
 
               </div>
             </div>
