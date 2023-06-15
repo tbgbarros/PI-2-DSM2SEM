@@ -33,7 +33,7 @@ if (!Login::estaLogado()) {
         <!-- logo esta bugado vou deixar sem por enquanto / se corrigir da pra tentar puxar imagem do cadastro no banco de dados | bootstrap aqui-->
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="./home.php" class="text-nowrap logo-img">
-            <img src="./images/logos/logo_padrao.svg" width="120" alt="" />
+            <img src="./images/logos/home.svg" width="120" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -54,6 +54,11 @@ if (!Login::estaLogado()) {
                 <span class="hide-menu">Guia de consultas</span>
               </a>
             </li>
+            <!-- divisao cadastro -->
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Cadastro</span>
+            </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="./cad_prontuario.php" aria-expanded="false">
                 <span>
@@ -61,11 +66,6 @@ if (!Login::estaLogado()) {
                 </span>
                 <span class="hide-menu">Cadastro Consulta</span>
               </a>
-            </li>
-            <!-- divisao cadastro -->
-            <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">Cadastro</span>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="./cad_paciente.php" aria-expanded="false">
@@ -147,7 +147,7 @@ if (!Login::estaLogado()) {
           </ul>
 
         </nav>
-        <!-- nav sidebar -->
+        <!-- fim nav sidebar navigation -->
       </div>
       <!-- sidebar scroll-->
     </aside>

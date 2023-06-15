@@ -21,24 +21,21 @@ require_once 'class/connectMedico.php';
         </p>
     <?php } ?>
     <!--  div centralizada usei o padrao css min -->
-    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-        data-sidebar-position="fixed" data-header-position="fixed">
-        <div
-            class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+        <div class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
             <div class="d-flex align-items-center justify-content-center w-100">
                 <div class="row justify-content-center w-100">
                     <div class="col-md-8 col-lg-6 col-xxl-3">
                         <div class="card mb-0">
                             <div class="card-body">
                                 <a href="./home.php" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                                    <img src="./images/logos/logo_padrao.svg" width="180" alt="">
+                                    <img src="./images/logos/home.svg" width="180" alt="">
                                 </a>
                                 <p class="text-center">Prontuários Online</p>
                                 <form method="post">
                                     <div class="mb-3">
                                         <label for="crm" class="form-label">Usuário</label>
-                                        <input type="text" class="form-control" id="crm" name="crm"
-                                            aria-describedby="emailHelp">
+                                        <input type="text" class="form-control" id="crm" name="crm" aria-describedby="emailHelp">
                                     </div>
                                     <div class="mb-4">
                                         <label for="exampleInputPassword1" class="form-label">Senha</label>
@@ -46,8 +43,7 @@ require_once 'class/connectMedico.php';
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="form-check">
-                                            <input class="form-check-input primary" type="checkbox" value=""
-                                                id="flexCheckChecked" checked>
+                                            <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
                                             <label class="form-check-label text-dark" for="flexCheckChecked">
                                                 Lembrar-me!
                                             </label>
@@ -62,8 +58,7 @@ require_once 'class/connectMedico.php';
                                     </div>
                                 </form>
                                 <a class="" href="./adm.php">
-                                    <button type=""
-                                        class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">ADMINISTRADOR</button>
+                                    <button type="" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">ADMINISTRADOR</button>
                                 </a>
                             </div>
                         </div>

@@ -48,7 +48,7 @@ if (isset($_POST['editar'])) {
                 <!-- logo esta bugado vou deixar sem por enquanto / se corrigir da pra tentar puxar imagem do cadastro no banco de dados | bootstrap aqui-->
                 <div class="brand-logo d-flex align-items-center justify-content-between">
                     <a href="./home.php" class="text-nowrap logo-img">
-                        <img src="./images/logos/logo_padrao.svg" width="180" alt="" />
+                        <img src="./images/logos/home.svg" width="120" alt="" />
                     </a>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                         <i class="ti ti-x fs-8"></i>
@@ -69,39 +69,31 @@ if (isset($_POST['editar'])) {
                                 <span class="hide-menu">Guia de consultas</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="./cad_prontuario.php" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-dashboard"></i>
-                                </span>
-                                <span class="hide-menu">Cadastro Consulta</span>
-                            </a>
-                        </li>
                         <!-- divisao cadastro -->
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                             <span class="hide-menu">Cadastro</span>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link" href="./cad_prontuario.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-bookmarks"></i>
+                                </span>
+                                <span class="hide-menu">Cadastro Consulta</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link" href="./cad_paciente.php" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-layout"></i>
+                                    <i class="ti ti-address-book"></i>
                                 </span>
                                 <span class="hide-menu">Cadastro Paciente</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./cad_prontuario.php" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-dashboard"></i>
-                                </span>
-                                <span class="hide-menu">Cadastro Prontuarios</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
                             <a class="sidebar-link" href="./cad_medico.php" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-table"></i>
+                                    <i class="ti ti-medical-cross"></i>
                                 </span>
                                 <span class="hide-menu">Cadastro Medicos</span>
                             </a>
@@ -109,7 +101,7 @@ if (isset($_POST['editar'])) {
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="./cad_hospital.php" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-table"></i>
+                                    <i class="ti ti-building-hospital"></i>
                                 </span>
                                 <span class="hide-menu">Cadastro Hospitais</span>
                             </a>
@@ -121,7 +113,7 @@ if (isset($_POST['editar'])) {
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="./paciente.php" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-article"></i>
+                                    <i class="ti ti-meteor"></i>
                                 </span>
                                 <span class="hide-menu">Pacientes</span>
                             </a>
@@ -129,19 +121,12 @@ if (isset($_POST['editar'])) {
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="./prontuario.php" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-alert-circle"></i>
+                                    <i class="ti ti-report-medical"></i>
                                 </span>
                                 <span class="hide-menu">Prontuarios</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="./relatorios.php" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-cards"></i>
-                                </span>
-                                <span class="hide-menu">Relatorios</span>
-                            </a>
-                        </li>
+
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                             <span class="hide-menu">Medico</span>
@@ -149,7 +134,7 @@ if (isset($_POST['editar'])) {
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="./guiamedico.php" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-mood-happy"></i>
+                                    <i class="ti ti-book-2"></i>
                                 </span>
                                 <span class="hide-menu">Guia medico</span>
                             </a>
@@ -157,15 +142,27 @@ if (isset($_POST['editar'])) {
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="./hospitais.php" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-aperture"></i>
+                                    <i class="ti ti-building-hospital"></i>
                                 </span>
                                 <span class="hide-menu">Hospitais</span>
+                            </a>
+                        </li>
+                        <li class="nav-small-cap">
+                            <i class=""></i>
+                            <span class="hide-menu"></span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./cad_medico.php" aria-expanded="false">
+                                <span>
+                                    <i class=""></i>
+                                </span>
+                                <span class="hide-menu"></span>
                             </a>
                         </li>
                     </ul>
 
                 </nav>
-                <!-- nav sidebar -->
+                <!-- fim nav sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
         </aside>

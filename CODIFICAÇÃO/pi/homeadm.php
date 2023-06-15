@@ -23,8 +23,7 @@ if (!Login::estaLogado()) {
 
 <body>
     <!--  class body css modificado -->
-    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-        data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
         <!-- barra lateral  nao consegui corrigir o bug do mobile ainda -->
 
         <!-- vou ocultar o logo versão mobile-->
@@ -33,7 +32,7 @@ if (!Login::estaLogado()) {
                 <!-- logo esta bugado vou deixar sem por enquanto / se corrigir da pra tentar puxar imagem do cadastro no banco de dados | bootstrap aqui-->
                 <div class="brand-logo d-flex align-items-center justify-content-between">
                     <a href="./home.php" class="text-nowrap logo-img">
-                        <img src="./images/logos/logo_padrao.svg" width="180" alt="" />
+                        <img src="./images/logos/admin.svg" width="120" alt="" />
                     </a>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                         <i class="ti ti-x fs-8"></i>
@@ -70,14 +69,12 @@ if (!Login::estaLogado()) {
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <ul class="navbar-nav">
                         <li class="nav-item d-block d-xl-none">
-                            <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse"
-                                href="javascript:void(0)">
+                            <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
                                 <i class="ti ti-menu-2"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-icon-hover"
-                                href="javascript:console.log('javascript');alert('<?php echo $sessionID; ?>')">
+                            <a class="nav-link nav-icon-hover" href="javascript:console.log('javascript');alert('<?php echo $sessionID; ?>')">
                                 <i class=" ti-bell-ringing">
                                     <?php echo 'ADM:  ' . $sessionID; ?>
                                 </i>
@@ -86,8 +83,7 @@ if (!Login::estaLogado()) {
                     </ul>
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-                            <a href="#" onclick="sairPagina()" target="_blank" class=""><button type="submit"
-                                    class="btn btn-primary">
+                            <a href="#" onclick="sairPagina()" target="_blank" class=""><button type="submit" class="btn btn-primary">
                                     <script>
                                         function sairPagina() {
                                             window.location.href = "logout.php";
@@ -95,25 +91,20 @@ if (!Login::estaLogado()) {
                                     </script>Sair
                                 </button></a>
                             <li class="nav-item dropdown">
-                                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="./images/profile/user-1.jpg" alt="" width="35" height="35"
-                                        class="rounded-circle">
+                                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="./images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
-                                    aria-labelledby="drop2">
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                                     <div class="message-body">
                                         <a href="infomedico.php" class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-user fs-6"></i>
                                             <p class="mb-0 fs-3">Meu Perfil</p>
                                         </a>
-                                        <a href="javascript:void(0)"
-                                            class="d-flex align-items-center gap-2 dropdown-item">
+                                        <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-mail fs-6"></i>
                                             <p class="mb-0 fs-3">Meus compromissos</p>
                                         </a>
-                                        <a href="./logout.php"
-                                            class="btn btn-outline-primary mx-3 mt-2 d-block">Sair</a>
+                                        <a href="./logout.php" class="btn btn-outline-primary mx-3 mt-2 d-block">Sair</a>
                                     </div>
                                 </div>
                             </li>
@@ -156,8 +147,7 @@ if (!Login::estaLogado()) {
                                             <div class="col-8">
                                                 <h4 class="fw-semibold mb-3">60</h4>
                                                 <div class="d-flex align-items-center mb-3">
-                                                    <span
-                                                        class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                                                    <span class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
                                                         <i class="ti ti-arrow-up-left text-success"></i>
                                                     </span>
                                                     <p class="text-dark me-1 fs-3 mb-0">+9%</p>
@@ -165,13 +155,11 @@ if (!Login::estaLogado()) {
                                                 </div>
                                                 <div class="d-flex align-items-center">
                                                     <div class="me-4">
-                                                        <span
-                                                            class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                                                        <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
                                                         <span class="fs-2">2023</span>
                                                     </div>
                                                     <div>
-                                                        <span
-                                                            class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                                                        <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
                                                         <span class="fs-2">2023</span>
                                                     </div>
                                                 </div>
@@ -194,8 +182,7 @@ if (!Login::estaLogado()) {
                                                 <h5 class="card-title mb-9 fw-semibold"> Consultas mensais </h5>
                                                 <h4 class="fw-semibold mb-3">17</h4>
                                                 <div class="d-flex align-items-center pb-1">
-                                                    <span
-                                                        class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
+                                                    <span class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
                                                         <i class="ti ti-arrow-down-right text-danger"></i>
                                                     </span>
                                                     <p class="text-dark me-1 fs-3 mb-0">+2%</p>
@@ -204,8 +191,7 @@ if (!Login::estaLogado()) {
                                             </div>
                                             <div class="col-4">
                                                 <div class="d-flex justify-content-end">
-                                                    <div
-                                                        class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
+                                                    <div class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
                                                         <i class="ti ti-currency-dollar fs-6"></i>
                                                     </div>
                                                 </div>
@@ -230,8 +216,7 @@ if (!Login::estaLogado()) {
                                     <li class="timeline-item d-flex position-relative overflow-hidden">
                                         <div class="timeline-time text-dark flex-shrink-0 text-end">09:30</div>
                                         <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                                            <span
-                                                class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
+                                            <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
                                             <span class="timeline-badge-border d-block flex-shrink-0"></span>
                                         </div>
                                         <div class="timeline-desc fs-3 text-dark mt-n1">Mariana ferreira</div>
@@ -239,20 +224,16 @@ if (!Login::estaLogado()) {
                                     <li class="timeline-item d-flex position-relative overflow-hidden">
                                         <div class="timeline-time text-dark flex-shrink-0 text-end">10:00 am</div>
                                         <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                                            <span
-                                                class="timeline-badge border-2 border border-info flex-shrink-0 my-8"></span>
+                                            <span class="timeline-badge border-2 border border-info flex-shrink-0 my-8"></span>
                                             <span class="timeline-badge-border d-block flex-shrink-0"></span>
                                         </div>
-                                        <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada <a
-                                                href="javascript:void(0)"
-                                                class="text-primary d-block fw-normal">#ML-3467</a>
+                                        <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada <a href="javascript:void(0)" class="text-primary d-block fw-normal">#ML-3467</a>
                                         </div>
                                     </li>
                                     <li class="timeline-item d-flex position-relative overflow-hidden">
                                         <div class="timeline-time text-dark flex-shrink-0 text-end">12:00 am</div>
                                         <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                                            <span
-                                                class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
+                                            <span class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
                                             <span class="timeline-badge-border d-block flex-shrink-0"></span>
                                         </div>
                                         <div class="timeline-desc fs-3 text-dark mt-n1">Thiago Barros</div>
@@ -260,20 +241,16 @@ if (!Login::estaLogado()) {
                                     <li class="timeline-item d-flex position-relative overflow-hidden">
                                         <div class="timeline-time text-dark flex-shrink-0 text-end">09:30 am</div>
                                         <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                                            <span
-                                                class="timeline-badge border-2 border border-warning flex-shrink-0 my-8"></span>
+                                            <span class="timeline-badge border-2 border border-warning flex-shrink-0 my-8"></span>
                                             <span class="timeline-badge-border d-block flex-shrink-0"></span>
                                         </div>
-                                        <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada <a
-                                                href="javascript:void(0)"
-                                                class="text-primary d-block fw-normal">#ML-3467</a>
+                                        <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada <a href="javascript:void(0)" class="text-primary d-block fw-normal">#ML-3467</a>
                                         </div>
                                     </li>
                                     <li class="timeline-item d-flex position-relative overflow-hidden">
                                         <div class="timeline-time text-dark flex-shrink-0 text-end">09:30 am</div>
                                         <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                                            <span
-                                                class="timeline-badge border-2 border border-danger flex-shrink-0 my-8"></span>
+                                            <span class="timeline-badge border-2 border border-danger flex-shrink-0 my-8"></span>
                                             <span class="timeline-badge-border d-block flex-shrink-0"></span>
                                         </div>
                                         <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada
@@ -282,8 +259,7 @@ if (!Login::estaLogado()) {
                                     <li class="timeline-item d-flex position-relative overflow-hidden">
                                         <div class="timeline-time text-dark flex-shrink-0 text-end">12:00 am</div>
                                         <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                                            <span
-                                                class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
+                                            <span class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
                                         </div>
                                         <div class="timeline-desc fs-3 text-dark mt-n1">Consulta gravada</div>
                                     </li>
@@ -350,8 +326,7 @@ if (!Login::estaLogado()) {
                                                 </td>
                                                 <td class="border-bottom-0">
                                                     <div class="d-flex align-items-center gap-2">
-                                                        <span
-                                                            class="badge bg-secondary rounded-3 fw-semibold">Medium</span>
+                                                        <span class="badge bg-secondary rounded-3 fw-semibold">Medium</span>
                                                     </div>
                                                 </td>
                                                 <td class="border-bottom-0">
@@ -391,8 +366,7 @@ if (!Login::estaLogado()) {
                                                 </td>
                                                 <td class="border-bottom-0">
                                                     <div class="d-flex align-items-center gap-2">
-                                                        <span
-                                                            class="badge bg-success rounded-3 fw-semibold">Critical</span>
+                                                        <span class="badge bg-success rounded-3 fw-semibold">Critical</span>
                                                     </div>
                                                 </td>
                                                 <td class="border-bottom-0">
