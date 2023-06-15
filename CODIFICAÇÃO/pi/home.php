@@ -86,7 +86,7 @@ if (!Login::estaLogado()) {
             <li class="sidebar-item">
               <a class="sidebar-link" href="./cad_hospital.php" aria-expanded="false">
                 <span>
-                  <i class="ti ti-table"></i>
+                  <i class="ti ti-package"></i>
                 </span>
                 <span class="hide-menu">Cadastro Hospitais</span>
               </a>
