@@ -196,7 +196,7 @@ class Login
         $stmt->execute();
         if ($stmt->affected_rows > 0) {
             echo '<script>
-            alert("Dados inseridos com sucesso!");
+            alert("Dados alterados com sucesso!");
             window.location.href = "cad_paciente.php";
             </script>';
         }
@@ -211,7 +211,7 @@ class Login
         $stmt->execute();
         if ($stmt->affected_rows > 0) {
             echo '<script>
-            alert("Dados inseridos com sucesso!");
+            alert("Dados alterados com sucesso!");
             window.location.href = "cad_paciente.php";
             </script>';
         }
@@ -226,7 +226,7 @@ class Login
         $stmt->execute();
         if ($stmt->affected_rows > 0) {
             echo '<script>
-            alert("Dados inseridos com sucesso!");
+            alert("Dados alterados com sucesso!");
             window.location.href = "cad_hospital.php";
             </script>';
         }
@@ -258,12 +258,18 @@ class Login
         $stmt = $this->connect->getConexao()->prepare($insertProntuario);
         $stmt->bind_param("sis", $dt_consulta, $idMedico, $cpf);
         $stmt->execute();
-        if ($stmt->affected_rows == 0) {
+        if ($stmt->affected_rows > 0) {
             echo '<script>
-        alert("Prontuario inserido com sucesso!");
+        alert("Consulta inserida com sucesso!");
+        window.location.href = "cad_prontuario.php";
+        </script>';
+        } else {
+            echo '<script>
+        alert("Não foi possível excluir os dados!");
         window.location.href = "cad_prontuario.php";
         </script>';
         }
+        $stmt->close();
     }
 
     //listar consultas JOIN

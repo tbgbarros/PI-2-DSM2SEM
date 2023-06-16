@@ -5,16 +5,6 @@ require_once 'class/log_consult.php';
 
 $pessoa = new Login();
 
-$prontuario = new Login();
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $dt_consulta = $_POST['dt_consulta'];
-    $cpf = $_POST['cpf'];
-    $idMedico = $sessionID;
-    // Chama a função para inserir o cadastro de pacientes
-    $prontuario->cadastroProntuario($dt_consulta, $idMedico, $cpf);
-    unset($prontuario);
-}
-
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -193,17 +183,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     <div class="message-body">
                                         <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-user fs-6"></i>
-                                            <p class="mb-0 fs-3">My Profile</p>
-                                        </a>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                                            <i class="ti ti-mail fs-6"></i>
-                                            <p class="mb-0 fs-3">My Account</p>
+                                            <p class="mb-0 fs-3">Meu Perfil</p>
                                         </a>
                                         <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-list-check fs-6"></i>
-                                            <p class="mb-0 fs-3">My Task</p>
+                                            <p class="mb-0 fs-3">Minhas Consultas</p>
                                         </a>
-                                        <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                                        <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Sair</a>
                                     </div>
                                 </div>
                             </li>
@@ -212,10 +198,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </nav>
             </header>
             <!--  Header End -->
-
-
-
-
             <div class="container-fluid">
                 <!--  Row 1 -->
                 <div class="row">
@@ -224,11 +206,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <h1>Cadastro de Paciente</h1>
                         </div>
                     </div>
-
-
-
                     <div class="container">
-
                     </div>
                     <div class="container">
                         <form method="post" action="cad_paciente_call.php">
