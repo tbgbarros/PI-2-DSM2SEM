@@ -195,17 +195,13 @@ if (isset($_POST['editar'])) {
                   <div class="message-body">
                     <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3">My Profile</p>
-                    </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-mail fs-6"></i>
-                      <p class="mb-0 fs-3">My Account</p>
+                      <p class="mb-0 fs-3">Meu perfil</p>
                     </a>
                     <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-list-check fs-6"></i>
-                      <p class="mb-0 fs-3">My Task</p>
+                      <p class="mb-0 fs-3">Minhas Consultas</p>
                     </a>
-                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Sair</a>
                   </div>
                 </div>
               </li>
@@ -223,14 +219,9 @@ if (isset($_POST['editar'])) {
             </div>
           </div>
           <!-- 8 x 4 x 4 as div-->
-
-
         </div>
       </div>
-
-
       <!-- consulta nova -->
-
       <main>
         <section class="featured-places">
           <div class="container">

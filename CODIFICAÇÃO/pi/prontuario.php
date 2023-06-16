@@ -272,7 +272,7 @@ if (isset($_POST['editar'])) {
                                                 echo "<td>" . $row["crm"] . "</td>";
                                                 echo "<td>" . $row["nomemedico"] . "</td>";
                                                 echo "<td>" . $row["especializacao"] . "</td>";
-                                                echo "<td>" . $row["unidade_op"] . "</td>";
+                                                echo "<td>" . $row["observacoes"] . "</td>";
                                                 // Adicione aqui mais colunas conforme necessário
                                                 echo "</tr>";
                                             }

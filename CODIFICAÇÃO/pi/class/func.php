@@ -275,8 +275,8 @@ class Login
     //listar consultas JOIN
     public function listarConsultas()
     {
-        $query = "SELECT p.nome,p.cpf,p.sexo, p.telefone,c.dt_consulta,  
-        m.crm, m.nomemedico, m.especializacao, m.unidade_op
+        $query = "SELECT p.nome,p.cpf, p.telefone,c.dt_consulta,  
+        m.crm, m.nomemedico, m.especializacao, p.observacoes
         FROM consulta c
         JOIN medico m ON c.ID_medico = m.ID_medico
         JOIN pacientes p ON c.cpf = p.cpf
