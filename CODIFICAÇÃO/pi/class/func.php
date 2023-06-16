@@ -275,17 +275,55 @@ class Login
     //listar consultas JOIN
     public function listarConsultas()
     {
-        $query = "SELECT p.nome,p.cpf, p.telefone,c.dt_consulta,  
-        m.crm, m.nomemedico, m.especializacao, p.observacoes
+        $query = "SELECT p.nome,p.cpf,p.sexo, p.telefone,c.dt_consulta,  
+        m.crm, m.nomemedico, m.especializacao, m.unidade_op
         FROM consulta c
         JOIN medico m ON c.ID_medico = m.ID_medico
         JOIN pacientes p ON c.cpf = p.cpf
-        ORDER BY c.dt_consulta DESC;";
+        ORDER BY c.dt_consulta asc;";
         $stmt = $this->connect->getConexao()->prepare($query);
         $stmt->execute();
         $resultadoConsultas = $stmt->get_result();
         return $resultadoConsultas;
     }
+
+    public function listarProntuarios()
+    {
+        $query = "SELECT nome,cpf,observacoes FROM pacientes where cpf = ?;";
+        $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->execute();
+        $resultadoConsultas = $stmt->get_result();
+
+        if ($resultadoConsultas->num_rows > 0) {
+            // Iterar sobre os registros e exibir as informações
+            while ($row = $resultadoConsultas->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>
+                    <div class='d-flex align-items-center gap-2'>
+                        <span class='btn btn-info rounded-3 fw-semibold'>"
+                    . $row["nome"] .
+                    "</span>
+                    </div>
+                </td>";
+                echo "<td>
+                    <div class='d-flex align-items-center gap-2'>
+                        <span class='btn btn-primary rounded-3 fw-semibold'>"
+                    . $row["cpf"] .
+                    "</span>
+                    </div>
+                </td>";
+                echo "<td>
+                    <div class='d-flex align-items-center gap-2'>
+                        <span class='btn btn-warning  fw-semibold'>"
+                    . $row["observacoes"] .
+                    "</span>
+                    </div>
+                </td>";
+                echo "</tr>";
+            }
+        }
+    }
+
 
     //cadastro medico
     public function cadastroMedico(
@@ -372,6 +410,23 @@ class Login
         while ($hospital = $result->fetch_assoc()) {
             echo '<option value="' . $hospital['sexo'] . '">' . '</option>';
         }
+    }
+
+    function buscarProntuario($cpf)
+    {
+        $query = "SELECT nome, telefone, observacoes FROM pacientes WHERE cpf = ?";
+        $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->bind_param("s", $cpf);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows == 1) {
+            $paciente = $result->fetch_assoc();
+            return $paciente;
+        } else {
+            return false;
+        }
+        $stmt->close();
     }
 
     //cadastro medico

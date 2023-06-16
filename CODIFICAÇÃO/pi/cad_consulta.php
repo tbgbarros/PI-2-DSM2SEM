@@ -1,24 +1,38 @@
 <?php
 session_start();
 require_once 'class/func.php';
+require_once 'class/log_consult.php';
 
-if (!Login::estaLogado()) {
-    header('Location: index.php');
-    exit;
-} else {
-    $sessionID = Login::estaLogado();
-    $sessionNome = Login::nomeLogado();
-}
-
-$prontuario = new Login();
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $dt_consulta = $_POST['dt_consulta'];
+$login = new Login();
+//formulario para editar, verificacao 
+if (isset($_POST['editar'])) {
+    // atribuido post
+    $nome = $_POST['nome'];
+    $dt_nasc = $_POST['dt_nasc'];
+    $sexo = $_POST['sexo'];
+    $telefone = $_POST['telefone'];
+    $nome_mae = $_POST['nome_mae'];
+    $naturalidade = $_POST['naturalidade'];
+    $endereco = $_POST['endereco'];
     $cpf = $_POST['cpf'];
-    $idMedico = $sessionID;
-    // Chama a função para inserir o cadastro de pacientes
-    $prontuario->cadastroProntuario($dt_consulta, $idMedico, $cpf);
-    unset($prontuario);
 }
+
+if (isset($_POST['editar'])) {
+    // atribuido post
+    $nome = $_POST['nome'];
+    $dt_nasc = $_POST['dt_nasc'];
+    $sexo = $_POST['sexo'];
+    $telefone = $_POST['telefone'];
+    $nome_mae = $_POST['nome_mae'];
+    $naturalidade = $_POST['naturalidade'];
+    $endereco = $_POST['endereco'];
+    $cpf = $_POST['cpf'];
+}
+
+
+
+?>
+
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -29,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Prontuário Online</title>
     <link rel="shortcut icon" type="image/png" href="./images/logos/favicon.png" />
     <link rel="stylesheet" href="./css/styles.min.css" />
+
 </head>
 
 <body>
@@ -42,11 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <!-- logo esta bugado vou deixar sem por enquanto / se corrigir da pra tentar puxar imagem do cadastro no banco de dados | bootstrap aqui-->
                 <div class="brand-logo d-flex align-items-center justify-content-between">
                     <a href="./home.php" class="text-nowrap logo-img">
-                        <img src="./images/logos/logo_padrao.svg" width="180" alt="" />
+                        <img src="./images/logos/home.svg" width="120" alt="" />
                     </a>
-                    <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-                        <i class="ti ti-x fs-8"></i>
-                    </div>
+
                 </div>
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
@@ -63,27 +76,64 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <span class="hide-menu">Guia de consultas</span>
                             </a>
                         </li>
+                        <!-- divisao cadastro -->
+                        <li class="nav-small-cap">
+                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                            <span class="hide-menu">Cadastro</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./cad_prontuario.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-bookmarks"></i>
+                                </span>
+                                <span class="hide-menu">Cadastro Consulta</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./cad_paciente.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-address-book"></i>
+                                </span>
+                                <span class="hide-menu">Cadastro Paciente</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./cad_medico.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-medical-cross"></i>
+                                </span>
+                                <span class="hide-menu">Cadastro Medicos</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./cad_hospital.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-building-hospital"></i>
+                                </span>
+                                <span class="hide-menu">Cadastro Hospitais</span>
+                            </a>
+                        </li>
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                             <span class="hide-menu">Pacientes</span>
                         </li>
-
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./paciente.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-meteor"></i>
+                                </span>
+                                <span class="hide-menu">Pacientes</span>
+                            </a>
+                        </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="./prontuario.php" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-alert-circle"></i>
+                                    <i class="ti ti-report-medical"></i>
                                 </span>
                                 <span class="hide-menu">Prontuarios</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="./relatorios.php" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-cards"></i>
-                                </span>
-                                <span class="hide-menu">Relatorios</span>
-                            </a>
-                        </li>
+
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                             <span class="hide-menu">Medico</span>
@@ -91,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="./guiamedico.php" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-mood-happy"></i>
+                                    <i class="ti ti-book-2"></i>
                                 </span>
                                 <span class="hide-menu">Guia medico</span>
                             </a>
@@ -99,15 +149,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="./hospitais.php" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-aperture"></i>
+                                    <i class="ti ti-building-hospital"></i>
                                 </span>
                                 <span class="hide-menu">Hospitais</span>
+                            </a>
+                        </li>
+                        <li class="nav-small-cap">
+                            <i class=""></i>
+                            <span class="hide-menu"></span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./cad_medico.php" aria-expanded="false">
+                                <span>
+                                    <i class=""></i>
+                                </span>
+                                <span class="hide-menu"></span>
                             </a>
                         </li>
                     </ul>
 
                 </nav>
-                <!-- End Sidebar navigation -->
+                <!-- fim nav sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
         </aside>
@@ -124,9 +186,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-icon-hover" href="javascript:void(0)">
-                                <i class="ti ti-bell-ringing"></i>
-                                <div class="notification bg-primary rounded-circle"></div>
+                            <a class="nav-link nav-icon-hover" href="javascript:console.log('javascript');alert('<?php echo $sessionNome; ?>')">
+                                <i class=" ti-bell-ringing">
+                                    <?php echo 'Dr(a) ' . $sessionNome; ?>
+                                </i>
                             </a>
                         </li>
                     </ul>
@@ -147,17 +210,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     <div class="message-body">
                                         <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-user fs-6"></i>
-                                            <p class="mb-0 fs-3">My Profile</p>
+                                            <p class="mb-0 fs-3">Meu Perfil</p>
                                         </a>
                                         <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-mail fs-6"></i>
-                                            <p class="mb-0 fs-3">My Account</p>
+                                            <p class="mb-0 fs-3">Minha conta</p>
                                         </a>
                                         <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-list-check fs-6"></i>
-                                            <p class="mb-0 fs-3">My Task</p>
+                                            <p class="mb-0 fs-3">Minhas tarefas</p>
                                         </a>
-                                        <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                                        <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Sair</a>
                                     </div>
                                 </div>
                             </li>
@@ -171,26 +234,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="row">
                     <div class="col-lg-12 d-flex align-items-stretch">
                         <div class="card w-100">
-                            <h1>Cadastro de Consulta</h1>
+                            <h1>Consultas</h1>
                         </div>
                     </div>
-                    <div class="container">
-                        <form method="post" action="">
-                            <div class="form-group">
-                                <label for="cpf">CPF do paciente:</label>
-                                <input type="text" class="form-control" id="cpf" name="cpf" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="dt_consulta">Data da consulta:</label>
-                                <input type="date" class="form-control" id="dt_consulta" name="dt_consulta" required>
-                            </div>
-                            <div class="form-group">
-                                <label for=""></label>
-
-                            </div>
-                            <button type="submit" class="btn btn-primary">Salvar</button>
-                        </form>
-                    </div>
+                    <!-- 8 x 4 x 4 as div-->
 
 
                 </div>
@@ -199,7 +246,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <!-- consulta nova -->
 
+            <main>
+                <section class="featured-places">
+                    <div class="container">
+                        <hr>
+                        <div class="table-responsive table-striped">
+                            <table class="table  mb-0 align-middle">
+                                <thead class="text-dark fs-4">
+                                    <tr>
+                                        <th class="border-bottom-0">
+                                            <h6 class="fw-semibold mb-0"><span class='badge bg-dark rounded-3 '>Paciente</span></h6>
+                                        </th>
+                                        <th class="border-bottom-0">
+                                            <h6 class="fw-semibold mb-0"><span class='badge bg-dark rounded-3 fw-semibold'>CPF</span></h6>
+                                        </th>
+                                        <th class="border-bottom-0">
+                                            <h6 class="fw-semibold mb-0"><span class='badge bg-dark rounded-3 '>Observações</span></h6>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <?php
+                                        $pacientes = new Login();
+                                        // Chamada da função para buscar os pacientes
+                                        $pacientes->listarProntuarios();
 
+
+                                        ?>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </section>
+            </main>
+            <!-- fim consulta nova -->
         </div>
         <script src="./libs/jquery/dist/jquery.min.js"></script>
         <script src="./libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

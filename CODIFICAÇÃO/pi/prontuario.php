@@ -17,6 +17,8 @@ if (isset($_POST['editar'])) {
     $cpf = $_POST['cpf'];
 }
 
+
+
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -220,22 +222,58 @@ if (isset($_POST['editar'])) {
                 <div class="row">
                     <div class="col-lg-12 d-flex align-items-stretch">
                         <div class="card w-100">
-                            <h1>Prontuario do paciente</h1>
+
                         </div>
                     </div>
                     <!-- 8 x 4 x 4 as div-->
-
-
                 </div>
             </div>
-
-
             <!-- consulta nova -->
-
             <main>
                 <section class="featured-places">
                     <div class="container">
                         <hr>
+                        <div class="table-responsive">
+                            <div class="container-fluid">
+                                <!--  Row 1 -->
+                                <div class="row">
+                                    <div class="col-lg-12 d-flex align-items-stretch">
+                                        <div class="card w-100">
+                                            <h1>Digite o CPF que deseja consultar:</h1>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="container">
+                                        <form method="post" action="cad_consulta.php">
+                                            <div class="form-group">
+                                                <label for="cpf">CPF do paciente:</label>
+                                                <input type="text" class="form-control" id="cpf" name="cpf" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for=""></label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Pesquisar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+                <div class="container-fluid">
+                    <hr>
+                    <!--  Row 2 -->
+                    <div class="row">
+                        <div class="col-lg-12 d-flex align-items-stretch">
+                            <div class="card w-100">
+                                <h1>Ultimos Pacientes Consultados</h1>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <section class="featured-places">
+                    <div class="container">
                         <div class="table-responsive">
                             <table class="table table-sm table-bordered table-hover">
                                 <thead>
@@ -272,7 +310,7 @@ if (isset($_POST['editar'])) {
                                                 echo "<td>" . $row["crm"] . "</td>";
                                                 echo "<td>" . $row["nomemedico"] . "</td>";
                                                 echo "<td>" . $row["especializacao"] . "</td>";
-                                                echo "<td>" . $row["observacoes"] . "</td>";
+                                                echo "<td>" . $row["unidade_op"] . "</td>";
                                                 // Adicione aqui mais colunas conforme necessário
                                                 echo "</tr>";
                                             }
