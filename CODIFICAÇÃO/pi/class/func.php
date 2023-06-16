@@ -265,7 +265,7 @@ class Login
         </script>';
         } else {
             echo '<script>
-        alert("Não foi possível excluir os dados!");
+        alert("Não foi possível cadastrar a consultaos dados!");
         window.location.href = "cad_prontuario.php";
         </script>';
         }
