@@ -221,6 +221,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                 </nav>
             </header>
+            <div class="container-fluid">
+                <!--  Row 1 -->
+                <div class="row">
+                    <div class="col-lg-12 d-flex align-items-stretch">
+                        <div class="card w-100">
+                            <h1>Cadastro de Consulta</h1>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <form method="post" action="cad_consulta_call.php">
+                            <div class="form-group">
+                                <label for="cpf">CPF do paciente:</label>
+                                <input type="text" class="form-control" id="cpf" name="cpf" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dt_consulta">Data da consulta:</label>
+                                <input type="date" class="form-control" id="dt_consulta" name="dt_consulta" required>
+                            </div>
+                            <div class="form-group">
+                                <label for=""></label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
             <!--  Header End -->
             <div class="container-fluid">
                 <!--  Row 1 -->

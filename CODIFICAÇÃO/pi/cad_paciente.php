@@ -5,6 +5,15 @@ require_once 'class/log_consult.php';
 
 $pessoa = new Login();
 
+$prontuario = new Login();
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $dt_consulta = $_POST['dt_consulta'];
+    $cpf = $_POST['cpf'];
+    $idMedico = $sessionID;
+    // Chama a função para inserir o cadastro de pacientes
+    $prontuario->cadastroProntuario($dt_consulta, $idMedico, $cpf);
+    unset($prontuario);
+}
 
 ?>
 <!doctype html>
