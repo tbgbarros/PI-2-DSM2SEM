@@ -516,6 +516,7 @@ class Login
 
         // Define o diretório de destino para salvar os arquivos
         $diretorioDestino = "./arquivos/bd";
+        print_r($diretorioDestino);
 
         if (move_uploaded_file($arquivo['tmp_name'], $diretorioDestino . '/' . $arquivo['name'])) {
             // Insere os dados na tabela "armazena"
@@ -546,6 +547,51 @@ class Login
             return false;
         }
     }
+
+    //Funcao gravar arquivo banco
+    function arquivoGravar($filePath, $cpf)
+    {
+        print_r($filePath);
+        print_r($cpf);
+        // Lê o conteúdo do arquivo
+        $fileData = file_get_contents($filePath['tmp_name']);
+        print_r($fileData);
+        if ($fileData !== false) {
+            // Escapa caracteres especiais
+            $escapedFileData = $this->connect->getConexao()->real_escape_string($fileData);
+
+            // Prepara a consulta SQL com um marcador de parâmetro
+            $sql = "INSERT INTO armazena (cpf, arquivo) VALUES (?, ?)";
+            $stmt = $this->connect->getConexao()->prepare($sql);
+
+            if ($stmt) {
+                // Vincula o valor do CPF e o conteúdo do arquivo
+                $stmt->bind_param("ss", $cpf, $escapedFileData);
+
+                // Executa a consulta preparada
+                $stmt->execute();
+
+                if ($stmt->affected_rows > 0) {
+                    echo "Arquivo salvo com sucesso no banco de dados.";
+                } else {
+                    echo "Erro ao salvar o arquivo no banco de dados: " . $stmt->error;
+                }
+
+                // Fecha a consulta preparada
+                $stmt->close();
+            } else {
+                echo "Erro na preparação da consulta: " . $this->connect->getConexao()->error;
+            }
+        } else {
+            echo "Erro ao ler o conteúdo do arquivo.";
+        }
+
+    }
+
+
+
+    // Verifica se um arquivo foi enviado através do formulário
+
 
     function ulConsultas()
     {

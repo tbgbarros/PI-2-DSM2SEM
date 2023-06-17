@@ -39,7 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <!--  class body css modificado -->
-    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
         <!-- barra lateral  nao consegui corrigir o bug do mobile ainda -->
 
         <!-- vou ocultar o logo versão mobile-->
@@ -174,12 +175,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <ul class="navbar-nav">
                         <li class="nav-item d-block d-xl-none">
-                            <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                            <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse"
+                                href="javascript:void(0)">
                                 <i class="ti ti-menu-2"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-icon-hover" href="javascript:console.log('javascript');alert('<?php echo $sessionNome; ?>')">
+                            <a class="nav-link nav-icon-hover"
+                                href="javascript:console.log('javascript');alert('<?php echo $sessionNome; ?>')">
                                 <i class=" ti-bell-ringing">
                                     <?php echo 'Dr(a) ' . $sessionNome; ?>
                                 </i>
@@ -188,7 +191,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </ul>
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-                            <a href="#" onclick="sairPagina()" target="_blank" class="btn btn-primary"><button type="submit" class="btn">
+                            <a href="#" onclick="sairPagina()" target="_blank" class="btn btn-primary"><button
+                                    type="submit" class="btn">
                                     <script>
                                         function sairPagina() {
                                             window.location.href = "logout.php";
@@ -196,24 +200,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     </script>Sair
                                 </button></a>
                             <li class="nav-item dropdown">
-                                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="./images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="./images/profile/user-1.jpg" alt="" width="35" height="35"
+                                        class="rounded-circle">
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
+                                    aria-labelledby="drop2">
                                     <div class="message-body">
-                                        <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                                        <a href="javascript:void(0)"
+                                            class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-user fs-6"></i>
                                             <p class="mb-0 fs-3">My Profile</p>
                                         </a>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                                        <a href="javascript:void(0)"
+                                            class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-mail fs-6"></i>
                                             <p class="mb-0 fs-3">My Account</p>
                                         </a>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                                        <a href="javascript:void(0)"
+                                            class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-list-check fs-6"></i>
                                             <p class="mb-0 fs-3">My Task</p>
                                         </a>
-                                        <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                                        <a href="./authentication-login.html"
+                                            class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                                     </div>
                                 </div>
                             </li>
@@ -287,8 +298,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
                     </div>
                     <div class="container">
-                        <form method="post" action="cad_prontuario_callAQ.php">
-                            <div class="form-group">
+                        <form method="post" action="cad_prontuario_callAQ.php" enctype="multipart/form-data">
+                            <div class=" form-group">
                                 <label for="cpf">CPF do paciente:</label>
                                 <input type="text" class="form-control" id="cpf" name="cpf" required>
                             </div>
@@ -303,7 +314,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                             <div class="form-group">
                                 <label for="arquivo">Exames tamanho maximo 4mb:</label>
-                                <input type="file" class="form-control-file" id="arquivo" name="arquivo" enctype="multipart/form-data">
+                                <input type="file" class="form-control-file" id="arquivo" name="arquivo"
+                                    enctype="multipart/form-data">
                             </div>
                             <div class="form-group">
                                 <label for=""></label>
@@ -323,8 +335,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <script src="./libs/apexcharts/dist/apexcharts.min.js"></script>
         <script src="./libs/simplebar/dist/simplebar.js"></script>
         <script src="./js/dashboard.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
