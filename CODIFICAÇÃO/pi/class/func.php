@@ -287,16 +287,21 @@ class Login
         return $resultadoConsultas;
     }
 
-    public function listarProntuarios()
+    public function listarProntuarios($cpf)
     {
-        $query = "SELECT nome,cpf,observacoes FROM pacientes where cpf = ?;";
+
+        $query = "SELECT p.nome,p.cpf,p.observacoes,a.arquivo,a.nome_arquivo 
+                FROM pacientes p 
+                inner join armazena a on p.cpf = a.cpf and a.cpf = ?";
         $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->bind_param("s", $cpf);
         $stmt->execute();
         $resultadoConsultas = $stmt->get_result();
 
         if ($resultadoConsultas->num_rows > 0) {
             // Iterar sobre os registros e exibir as informações
             while ($row = $resultadoConsultas->fetch_assoc()) {
+                $nomeArquivo = $row['nome_arquivo'];
                 echo "<tr>";
                 echo "<td>
                     <div class='d-flex align-items-center gap-2'>
@@ -319,11 +324,45 @@ class Login
                     "</span>
                     </div>
                 </td>";
+                echo "<td>
+                    <div class='d-flex align-items-center gap-2'>
+                        <span class='btn btn-warning  fw-semibold'>
+                        <a href='visualizar_pdf.php?id=$nomeArquivo' target='_blank'>";
+                echo $nomeArquivo . "</a>";
                 echo "</tr>";
             }
+        } else {
+            echo "Nenhum resultado encontrado!";
         }
     }
 
+    public function mostrarPDF($recebeID)
+    {
+        $query = "SELECT arquivo FROM armazena WHERE nome_arquivo =  ?";
+
+        $stmt = $this->connect->getConexao()->prepare($query);
+        $stmt->bind_param("s", $recebeID);
+        $stmt->execute();
+        $resultadoConsultas = $stmt->get_result();
+
+        // Substitua "id" pelo identificador adequado do registro desejado
+
+        if ($resultadoConsultas->num_rows > 0) {
+            // Recupere o resultado da consulta
+            $result = $resultadoConsultas->fetch_assoc();
+            $nomee = $result['nome_arquivo'];
+            $arquivoBLOB = $result['arquivo'];
+            echo $nomee;
+            // Defina o cabeçalho HTTP para indicar que o conteúdo é um arquivo PDF
+            header("Content-type: application/pdf");
+
+
+            // Envie o conteúdo do arquivo BLOB para o navegador
+            echo $arquivoBLOB;
+        } else {
+            echo "Nenhum resultado encontrado!";
+        }
+    }
 
     //cadastro medico
     public function cadastroMedico(
@@ -554,19 +593,21 @@ class Login
         print_r($filePath);
         print_r($cpf);
         // Lê o conteúdo do arquivo
+        $nomeArquivo = $filePath['name'];
         $fileData = file_get_contents($filePath['tmp_name']);
+
         print_r($fileData);
         if ($fileData !== false) {
             // Escapa caracteres especiais
             $escapedFileData = $this->connect->getConexao()->real_escape_string($fileData);
 
             // Prepara a consulta SQL com um marcador de parâmetro
-            $sql = "INSERT INTO armazena (cpf, arquivo) VALUES (?, ?)";
+            $sql = "INSERT INTO armazena (nome_arquivo, cpf, arquivo) VALUES (?, ?, ?)";
             $stmt = $this->connect->getConexao()->prepare($sql);
 
             if ($stmt) {
                 // Vincula o valor do CPF e o conteúdo do arquivo
-                $stmt->bind_param("ss", $cpf, $escapedFileData);
+                $stmt->bind_param("sss", $nomeArquivo, $cpf, $escapedFileData);
 
                 // Executa a consulta preparada
                 $stmt->execute();
