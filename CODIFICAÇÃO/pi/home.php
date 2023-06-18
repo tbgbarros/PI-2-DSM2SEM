@@ -13,6 +13,7 @@ require_once 'class/log_consult.php';
   <link rel="shortcut icon" type="image/png" href="./images/logos/favicon.png" />
   <link rel="stylesheet" href="./css/styles.min.css" />
   <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@latest/dist/apexcharts.min.css">
 </head>
 
 <body>
@@ -216,7 +217,7 @@ require_once 'class/log_consult.php';
                     </select>
                   </div>
                 </div>
-                <div id="chart"></div>
+                <div id="chart2"></div>
               </div>
             </div>
           </div>
@@ -471,6 +472,8 @@ require_once 'class/log_consult.php';
 
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest/dist/apexcharts.min.js"></script>
+
     <script src="./libs/jquery/dist/jquery.min.js"></script>
     <script src="./libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/meu.js"></script>

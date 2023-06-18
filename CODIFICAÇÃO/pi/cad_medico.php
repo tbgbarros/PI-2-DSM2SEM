@@ -129,14 +129,6 @@ require_once 'class/log_consult.php';
                             <i class=""></i>
                             <span class="hide-menu"></span>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="./cad_medico.php" aria-expanded="false">
-                                <span>
-                                    <i class=""></i>
-                                </span>
-                                <span class="hide-menu"></span>
-                            </a>
-                        </li>
                     </ul>
 
                 </nav>
