@@ -327,7 +327,7 @@ class Login
                 echo "<td>
                     <div class='d-flex align-items-center gap-2'>
                         <span class='btn btn-warning  fw-semibold'>
-                        <a href='visualizar_pdf.php?id=$nomeArquivo' target='_blank'>";
+                        <a href='visualizar_pdf.php?id=$nomeArquivo' rel='noopener'target='_blank'>";
                 echo $nomeArquivo . "</a>";
                 echo "</tr>";
             }
@@ -350,12 +350,10 @@ class Login
         if ($resultadoConsultas->num_rows > 0) {
             // Recupere o resultado da consulta
             $result = $resultadoConsultas->fetch_assoc();
-            $nomee = $result['nome_arquivo'];
             $arquivoBLOB = $result['arquivo'];
-            echo $nomee;
             // Defina o cabeçalho HTTP para indicar que o conteúdo é um arquivo PDF
-            header("Content-type: application/pdf");
-
+            //header("Content-type: application/pdf");
+            header("Content-Disposition: attachment; filename=\"{$recebeID}.pdf\"");
 
             // Envie o conteúdo do arquivo BLOB para o navegador
             echo $arquivoBLOB;
@@ -590,13 +588,12 @@ class Login
     //Funcao gravar arquivo banco
     function arquivoGravar($filePath, $cpf)
     {
-        print_r($filePath);
-        print_r($cpf);
+
         // Lê o conteúdo do arquivo
         $nomeArquivo = $filePath['name'];
         $fileData = file_get_contents($filePath['tmp_name']);
 
-        print_r($fileData);
+
         if ($fileData !== false) {
             // Escapa caracteres especiais
             $escapedFileData = $this->connect->getConexao()->real_escape_string($fileData);

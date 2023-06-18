@@ -44,7 +44,8 @@ $login = new Login();
 
 <body>
     <!--  class body css modificado -->
-    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
         <!-- barra lateral  nao consegui corrigir o bug do mobile ainda -->
 
         <!-- vou ocultar o logo versão mobile-->
@@ -130,7 +131,8 @@ $login = new Login();
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <ul class="navbar-nav">
                         <li class="nav-item d-block d-xl-none">
-                            <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                            <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse"
+                                href="javascript:void(0)">
                                 <i class="ti ti-menu-2"></i>
                             </a>
                         </li>
@@ -143,7 +145,8 @@ $login = new Login();
                     </ul>
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-                            <a href="#" onclick="sairPagina()" target="_blank" class="btn btn-primary"><button type="submit" class="btn">
+                            <a href="#" onclick="sairPagina()" target="_blank" class="btn btn-primary"><button
+                                    type="submit" class="btn">
                                     <script>
                                         function sairPagina() {
                                             window.location.href = "logout.php";
@@ -151,24 +154,31 @@ $login = new Login();
                                     </script>Sair
                                 </button></a>
                             <li class="nav-item dropdown">
-                                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="./images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="./images/profile/user-1.jpg" alt="" width="35" height="35"
+                                        class="rounded-circle">
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
+                                    aria-labelledby="drop2">
                                     <div class="message-body">
-                                        <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                                        <a href="javascript:void(0)"
+                                            class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-user fs-6"></i>
                                             <p class="mb-0 fs-3">My Profile</p>
                                         </a>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                                        <a href="javascript:void(0)"
+                                            class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-mail fs-6"></i>
                                             <p class="mb-0 fs-3">My Account</p>
                                         </a>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                                        <a href="javascript:void(0)"
+                                            class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-list-check fs-6"></i>
                                             <p class="mb-0 fs-3">My Task</p>
                                         </a>
-                                        <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                                        <a href="./authentication-login.html"
+                                            class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                                     </div>
                                 </div>
                             </li>
@@ -203,67 +213,81 @@ $login = new Login();
                             </div>
 
 
-                    </div>
 
-                    <div class="container">
-                        <div class="form-group">
-                            <label for="nome">Nome:</label>
-                            <input type="text" class="form-control" id="nome" name="nome" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="dt_nasc">Data de Nascimento:</label>
-                            <input type="date" class="form-control" id="dt_nasc" name="dt_nasc" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="sexo">Sexo:</label>
-                            <select class="form-control" id="sexo" name="sexo" required>
-                                <option value="Masculino">Masculino</option>
-                                <option value="Feminino">Feminino</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="telefone">Telefone:</label>
-                            <input type="text" class="form-control" id="telefone" name="telefone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="nome_mae">Nome da Mãe:</label>
-                            <input type="text" class="form-control" id="nome_mae" name="nome_mae" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="naturalidade">Naturalidade:</label>
-                            <input type="text" class="form-control" id="naturalidade" name="naturalidade" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="endereco">Endereço:</label>
-                            <input type="text" class="form-control" id="endereco" name="endereco" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="endereco"></label>
 
-                        </div>
-                        <button type="submit" class="btn btn-primary">Salvar</button>
+                            <div class="container">
+                                <div class="form-group">
+                                    <label for="nome">Nome:</label>
+                                    <input type="text" class="form-control" id="nome" name="nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dt_nasc">Data de Nascimento:</label>
+                                    <input type="date" class="form-control" id="dt_nasc" name="dt_nasc" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sexo">Sexo:</label>
+                                    <select class="form-control" id="sexo" name="sexo" required>
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Feminino">Feminino</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefone">Telefone:</label>
+                                    <input type="text" class="form-control" id="telefone" name="telefone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nome_mae">Nome da Mãe:</label>
+                                    <input type="text" class="form-control" id="nome_mae" name="nome_mae" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="naturalidade">Naturalidade:</label>
+                                    <input type="text" class="form-control" id="naturalidade" name="naturalidade"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="endereco">Endereço:</label>
+                                    <input type="text" class="form-control" id="endereco" name="endereco" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="endereco"></label>
+
+                                </div>
+                                <button type="submit" class="btn btn-primary">Salvar</button>
                         </form>
+                        <a href="#" onclick="sairPagina()" target="_blank" class=""><button type="submit"
+                                class="btn btn-primary">
+                                <script>
+                                    function sairPagina() {
+                                        window.location.href = "cad_paciente.php";
+                                    };
+                                </script>Voltar
+                            </button>
+                        </a>
                     </div>
-
-
                 </div>
+
             </div>
-
-
-            <!-- consulta nova -->
-
-
         </div>
-        <script src="./libs/jquery/dist/jquery.min.js"></script>
-        <script src="./libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="./js/sidebarmenu.js"></script>
-        <script src="./js/config.js"></script>
-        <script src="./js/app.min.js"></script>
-        <script src="./libs/apexcharts/dist/apexcharts.min.js"></script>
-        <script src="./libs/simplebar/dist/simplebar.js"></script>
-        <script src="./js/dashboard.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+
+        <!-- consulta nova -->
+
+
+    </div>
+    <script src="./libs/jquery/dist/jquery.min.js"></script>
+    <script src="./libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/sidebarmenu.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/app.min.js"></script>
+    <script src="./libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="./libs/simplebar/dist/simplebar.js"></script>
+    <script src="./js/dashboard.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
