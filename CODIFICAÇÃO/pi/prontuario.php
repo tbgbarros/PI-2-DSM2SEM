@@ -244,7 +244,6 @@ if (isset($_POST['editar'])) {
             <main>
                 <section class="featured-places">
                     <div class="container">
-                        <hr>
                         <div class="table-responsive">
                             <div class="container-fluid">
                                 <!--  Row 1 -->
@@ -252,7 +251,6 @@ if (isset($_POST['editar'])) {
                                     <div class="col-lg-12 d-flex align-items-stretch">
                                         <div class="card w-100">
                                             <h1>Digite o CPF que deseja consultar:</h1>
-                                            <hr>
                                         </div>
                                     </div>
                                     <div class="container">
@@ -270,22 +268,23 @@ if (isset($_POST['editar'])) {
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for=""></label>
+                        </div>
                 </section>
-                <div class="container-fluid">
-                    <hr>
-                    <!--  Row 2 -->
-                    <div class="row">
-                        <div class="col-lg-12 d-flex align-items-stretch">
-                            <div class="card w-100">
-                                <h1>Ultimos Pacientes Consultados</h1>
-                                <hr>
+                <section class="featured-places">
+
+                    <div class="container">
+                        <div class="container-fluid">
+                            <!--  Row 2 -->
+                            <div class="row">
+                                <div class="col-lg-12 d-flex align-items-stretch">
+                                    <div class="card w-100">
+                                        <h1>Ultimos Pacientes Consultados</h1>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                </div>
-                <section class="featured-places">
-                    <div class="container">
                         <div class="table-responsive">
                             <table class="table table-sm table-bordered table-hover">
                                 <thead>

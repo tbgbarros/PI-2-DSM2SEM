@@ -17,7 +17,8 @@ require_once 'class/log_consult.php';
 
 <body>
   <!--  class body css modificado -->
-  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
     <!-- barra lateral  nao consegui corrigir o bug do mobile ainda -->
 
     <!-- vou ocultar o logo versão mobile-->
@@ -155,7 +156,8 @@ require_once 'class/log_consult.php';
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-icon-hover" href="javascript:console.log('javascript');alert('<?php echo $sessionNome; ?>')">
+              <a class="nav-link nav-icon-hover"
+                href="javascript:console.log('javascript');alert('<?php echo $sessionNome; ?>')">
                 <i class=" ti-bell-ringing">
                   <?php echo 'Dr(a) ' . $sessionNome; ?>
                 </i>
@@ -172,7 +174,8 @@ require_once 'class/log_consult.php';
                   </script>Sair
                 </button></a>
               <li class="nav-item dropdown">
-                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
                   <img src="./images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
@@ -226,9 +229,10 @@ require_once 'class/log_consult.php';
                     <h5 class="card-title mb-9 fw-semibold">Consultas anuais</h5>
                     <div class="row align-items-center">
                       <div class="col-8">
-                        <h4 class="fw-semibold mb-3">60</h4>
+                        <h4 class="fw-semibold mb-3">560</h4>
                         <div class="d-flex align-items-center mb-3">
-                          <span class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                          <span
+                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
                             <i class="ti ti-arrow-up-left text-success"></i>
                           </span>
                           <p class="text-dark me-1 fs-3 mb-0">+9%</p>
@@ -237,7 +241,7 @@ require_once 'class/log_consult.php';
                         <div class="d-flex align-items-center">
                           <div class="me-4">
                             <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
-                            <span class="fs-2">2023</span>
+                            <span class="fs-2">2022</span>
                           </div>
                           <div>
                             <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
@@ -261,9 +265,10 @@ require_once 'class/log_consult.php';
                     <div class="row alig n-items-start">
                       <div class="col-8">
                         <h5 class="card-title mb-9 fw-semibold"> Consultas mensais </h5>
-                        <h4 class="fw-semibold mb-3">17</h4>
+                        <h4 class="fw-semibold mb-3">38</h4>
                         <div class="d-flex align-items-center pb-1">
-                          <span class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
+                          <span
+                            class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
                             <i class="ti ti-arrow-down-right text-danger"></i>
                           </span>
                           <p class="text-dark me-1 fs-3 mb-0">+2%</p>
@@ -272,7 +277,8 @@ require_once 'class/log_consult.php';
                       </div>
                       <div class="col-4">
                         <div class="d-flex justify-content-end">
-                          <div class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
+                          <div
+                            class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
                             <i class="ti ti-currency-dollar fs-6"></i>
                           </div>
                         </div>
@@ -295,7 +301,7 @@ require_once 'class/log_consult.php';
                 </div>
                 <ul class="timeline-widget mb-0 position-relative mb-n5">
                   <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">09:30</div>
+                    <div class="timeline-time text-dark flex-shrink-0 text-end">09:30 am</div>
                     <div class="timeline-badge-wrap d-flex flex-column align-items-center">
                       <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
                       <span class="timeline-badge-border d-block flex-shrink-0"></span>
@@ -308,11 +314,11 @@ require_once 'class/log_consult.php';
                       <span class="timeline-badge border-2 border border-info flex-shrink-0 my-8"></span>
                       <span class="timeline-badge-border d-block flex-shrink-0"></span>
                     </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada <a href="javascript:void(0)" class="text-primary d-block fw-normal">#ML-3467</a>
+                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Carlos Alberto
                     </div>
                   </li>
                   <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">12:00 am</div>
+                    <div class="timeline-time text-dark flex-shrink-0 text-end">10:30 am</div>
                     <div class="timeline-badge-wrap d-flex flex-column align-items-center">
                       <span class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
                       <span class="timeline-badge-border d-block flex-shrink-0"></span>
@@ -320,29 +326,29 @@ require_once 'class/log_consult.php';
                     <div class="timeline-desc fs-3 text-dark mt-n1">Thiago Barros</div>
                   </li>
                   <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">09:30 am</div>
+                    <div class="timeline-time text-dark flex-shrink-0 text-end">13:30 pm</div>
                     <div class="timeline-badge-wrap d-flex flex-column align-items-center">
                       <span class="timeline-badge border-2 border border-warning flex-shrink-0 my-8"></span>
                       <span class="timeline-badge-border d-block flex-shrink-0"></span>
                     </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada <a href="javascript:void(0)" class="text-primary d-block fw-normal">#ML-3467</a>
+                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Henrique Oliveira
                     </div>
                   </li>
                   <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">09:30 am</div>
+                    <div class="timeline-time text-dark flex-shrink-0 text-end">14:00 am</div>
                     <div class="timeline-badge-wrap d-flex flex-column align-items-center">
                       <span class="timeline-badge border-2 border border-danger flex-shrink-0 my-8"></span>
                       <span class="timeline-badge-border d-block flex-shrink-0"></span>
                     </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Consulta gravada
+                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Juliano Moreira
                     </div>
                   </li>
                   <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">12:00 am</div>
+                    <div class="timeline-time text-dark flex-shrink-0 text-end">15:30 pm</div>
                     <div class="timeline-badge-wrap d-flex flex-column align-items-center">
                       <span class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
                     </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1">Consulta gravada</div>
+                    <div class="timeline-desc fs-3 text-dark mt-n1">Romeu Josefino</div>
                   </li>
                 </ul>
               </div>
@@ -357,102 +363,102 @@ require_once 'class/log_consult.php';
                     <thead class="text-dark fs-4">
                       <tr>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Id</h6>
+                          <h6 class="fw-semibold mb-0">Data</h6>
                         </th>
                         <th class="border-bottom-0">
                           <h6 class="fw-semibold mb-0">Paciente</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Name</h6>
+                          <h6 class="fw-semibold mb-0">Telefone</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Priority</h6>
+                          <h6 class="fw-semibold mb-0">Retorno</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Budget</h6>
+                          <h6 class="fw-semibold mb-0">Exames</h6>
                         </th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">1</h6>
+                          <h6 class="fw-semibold mb-0">15/06/2023</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-1">Sunil Joshi</h6>
-                          <span class="fw-normal">Web Designer</span>
+                          <h6 class="fw-semibold mb-1">Joaquim Santos</h6>
+                          <span class="fw-normal">Retorno</span>
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">Elite Admin</p>
+                          <p class="mb-0 fw-normal">(19)9852-31245</p>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-primary rounded-3 fw-semibold">Low</span>
+                            <span class="badge bg-danger rounded-3 fw-semibold">SIM</span>
                           </div>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
+                          <span class="badge bg-danger rounded-3 fw-semibold">SIM</span>
                         </td>
                       </tr>
                       <tr>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">2</h6>
+                          <h6 class="fw-semibold mb-0">15/06/2023</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-1">Andrew McDownland</h6>
-                          <span class="fw-normal">Project Manager</span>
+                          <h6 class="fw-semibold mb-1">Henrique muniz</h6>
+                          <span class="fw-normal">Primeira consulta</span>
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">Real Homes WP Theme</p>
+                          <p class="mb-0 fw-normal">(19)95236-8541</p>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-secondary rounded-3 fw-semibold">Medium</span>
+                            <span class="badge bg-danger rounded-3 fw-semibold">SIM</span>
                           </div>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$24.5k</h6>
+                          <span class="badge bg-danger rounded-3 fw-semibold">SIM</span>
                         </td>
                       </tr>
                       <tr>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">3</h6>
+                          <h6 class="fw-semibold mb-0">15/06/2023</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-1">Christopher Jamil</h6>
-                          <span class="fw-normal">Project Manager</span>
+                          <h6 class="fw-semibold mb-1">Jamal Cruz</h6>
+                          <span class="fw-normal">Padrão</span>
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">MedicalPro WP Theme</p>
+                          <p class="mb-0 fw-normal">(19)98521-4352</p>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-danger rounded-3 fw-semibold">High</span>
+                            <span class="badge bg-success rounded-3 fw-semibold">NÃO</span>
                           </div>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$12.8k</h6>
+                          <span class="badge bg-success rounded-3 fw-semibold">NÃO</span>
                         </td>
                       </tr>
 
                       <tr>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">4</h6>
+                          <h6 class="fw-semibold mb-0">15/06/2023</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-1">Nirav Joshi</h6>
-                          <span class="fw-normal">Frontend Engineer</span>
+                          <h6 class="fw-semibold mb-1">Guilherme Afonso</h6>
+                          <span class="fw-normal">Padrão</span>
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">Hosting Press HTML</p>
+                          <p class="mb-0 fw-normal">(19)99854-2345</p>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-success rounded-3 fw-semibold">Critical</span>
+                            <span class="badge bg-success rounded-3 fw-semibold">NÃO</span>
                           </div>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$2.4k</h6>
+                          <span class="badge bg-success rounded-3 fw-semibold">NÃO</span>
                         </td>
                       </tr>
                     </tbody>
@@ -467,6 +473,7 @@ require_once 'class/log_consult.php';
     </div>
     <script src="./libs/jquery/dist/jquery.min.js"></script>
     <script src="./libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/meu.js"></script>
     <script src="./js/sidebarmenu.js"></script>
     <script src="./js/app.min.js"></script>
     <script src="./libs/apexcharts/dist/apexcharts.min.js"></script>

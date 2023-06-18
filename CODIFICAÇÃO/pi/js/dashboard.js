@@ -6,12 +6,12 @@ $(function () {
   // =====================================
   var chart = {
     series: [
-      { name: "Earnings this month:", data: [355, 390, 300, 350, 390, 180, 355, 390] },
-      { name: "Expense this month:", data: [280, 250, 325, 215, 250, 310, 280, 250] },
+      { name: "Consultas mensais:", data: [40, 26, 38, 29, 55, 25, 41, 36] },
+      { name: "Comparativo Ano/Ano:", data: [38, 29, 37, 23, 45, 27, 22, 39] },
     ],
 
     chart: {
-      type: "bar",
+      type: "lines ",
       height: 345,
       offsetX: -15,
       toolbar: { show: true },
@@ -57,7 +57,7 @@ $(function () {
 
     xaxis: {
       type: "category",
-      categories: ["16/08", "17/08", "18/08", "19/08", "20/08", "21/08", "22/08", "23/08"],
+      categories: ["16/06", "17/06", "18/06", "19/06", "20/06", "21/06", "22/06", "23/06"],
       labels: {
         style: { cssClass: "grey--text lighten-2--text fill-color" },
       },
@@ -101,7 +101,7 @@ $(function () {
 
   };
 
-  var chart = new ApexCharts(document.querySelector("#chart"), chart);
+  var chart = new ApexCharts(document.querySelector("#chart2"), chart);
   chart.render();
 
 
