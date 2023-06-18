@@ -31,7 +31,8 @@ if (isset($_POST['editar'])) {
 
 <body>
   <!--  class body css modificado -->
-  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
     <!-- barra lateral  nao consegui corrigir o bug do mobile ainda -->
 
     <!-- vou ocultar o logo versão mobile-->
@@ -171,7 +172,8 @@ if (isset($_POST['editar'])) {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-icon-hover" href="javascript:console.log('javascript');alert('<?php echo $sessionNome; ?>')">
+              <a class="nav-link nav-icon-hover"
+                href="javascript:console.log('javascript');alert('<?php echo $sessionNome; ?>')">
                 <i class=" ti-bell-ringing">
                   <?php echo 'Dr(a) ' . $sessionNome; ?>
                 </i>
@@ -180,15 +182,17 @@ if (isset($_POST['editar'])) {
           </ul>
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-              <a href="#" onclick="sairPagina()" target="_blank" class="btn btn-primary"><button type="submit" class="btn">
+              <a href="#" onclick="sairPagina()" target="_blank" class=""><button type="submit" class="btn btn-primary">
                   <script>
                     function sairPagina() {
                       window.location.href = "logout.php";
                     };
                   </script>Sair
-                </button></a>
+                </button>
+              </a>
               <li class="nav-item dropdown">
-                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
                   <img src="./images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
@@ -264,7 +268,7 @@ if (isset($_POST['editar'])) {
                         echo "<td>" . $row["endereco"] . "</td>";
                         echo "<td>" . $row["cpf"] . "</td>";
                         // Adicione aqui mais colunas conforme necessário
-
+                    
 
                         //echo "<td class='text-center'>
                         //<button class='btn  btn-primary btn-sm' data-toggle='modal' data-target='#editar'>
@@ -274,7 +278,7 @@ if (isset($_POST['editar'])) {
                         //  <button class='btn btn-danger btn-sm' type='button'>Excluir</button>
                         //</a>
                         //</td>";
-
+                    
                         echo "</tr>";
                       }
                     } else {
@@ -285,7 +289,8 @@ if (isset($_POST['editar'])) {
 
 
                   <!-- Modal -->
-                  <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -365,8 +370,12 @@ if (isset($_POST['editar'])) {
     <script src="./libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="./libs/simplebar/dist/simplebar.js"></script>
     <script src="./js/dashboard.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
 
 </body>
 
