@@ -18,8 +18,7 @@ require_once 'class/log_consult.php';
 
 <body>
   <!--  class body css modificado -->
-  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-    data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
     <!-- barra lateral  nao consegui corrigir o bug do mobile ainda -->
 
     <!-- vou ocultar o logo versão mobile-->
@@ -28,7 +27,7 @@ require_once 'class/log_consult.php';
         <!-- logo esta bugado vou deixar sem por enquanto / se corrigir da pra tentar puxar imagem do cadastro no banco de dados | bootstrap aqui-->
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="./home.php" class="text-nowrap logo-img">
-            <img src="./images/logos/home.svg" width="120" alt="" />
+            <img src="./images/logos/home.png" width="120" alt="" />
           </a>
         </div>
         <!-- Sidebar navigation-->
@@ -157,8 +156,7 @@ require_once 'class/log_consult.php';
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-icon-hover"
-                href="javascript:console.log('javascript');alert('<?php echo $sessionNome; ?>')">
+              <a class="nav-link nav-icon-hover" href="javascript:console.log('javascript');alert('<?php echo $sessionNome; ?>')">
                 <i class=" ti-bell-ringing">
                   <?php echo 'Dr(a) ' . $sessionNome; ?>
                 </i>
@@ -175,8 +173,7 @@ require_once 'class/log_consult.php';
                   </script>Sair
                 </button></a>
               <li class="nav-item dropdown">
-                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
-                  aria-expanded="false">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
                   <img src="./images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
@@ -232,8 +229,7 @@ require_once 'class/log_consult.php';
                       <div class="col-8">
                         <h4 class="fw-semibold mb-3">560</h4>
                         <div class="d-flex align-items-center mb-3">
-                          <span
-                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                          <span class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
                             <i class="ti ti-arrow-up-left text-success"></i>
                           </span>
                           <p class="text-dark me-1 fs-3 mb-0">+9%</p>
@@ -268,8 +264,7 @@ require_once 'class/log_consult.php';
                         <h5 class="card-title mb-9 fw-semibold"> Consultas mensais </h5>
                         <h4 class="fw-semibold mb-3">38</h4>
                         <div class="d-flex align-items-center pb-1">
-                          <span
-                            class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
+                          <span class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
                             <i class="ti ti-arrow-down-right text-danger"></i>
                           </span>
                           <p class="text-dark me-1 fs-3 mb-0">+2%</p>
@@ -278,8 +273,7 @@ require_once 'class/log_consult.php';
                       </div>
                       <div class="col-4">
                         <div class="d-flex justify-content-end">
-                          <div
-                            class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
+                          <div class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
                             <i class="ti ti-currency-dollar fs-6"></i>
                           </div>
                         </div>
