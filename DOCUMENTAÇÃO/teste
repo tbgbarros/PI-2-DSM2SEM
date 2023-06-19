@@ -1,22 +1,4 @@
-A modelagem lógica é uma etapa crucial no projeto de banco de dados, na qual o foco é representar a estrutura lógica e as relações dos dados de forma independente do sistema de gerenciamento de banco de dados (SGBD) específico. O objetivo é criar um modelo que descreva com precisão os dados que serão armazenados e manipulados pelo sistema.
 
-Existem diferentes abordagens para a modelagem lógica, sendo as mais comuns o modelo Entidade-Relacionamento (ER) e o modelo Relacional.
-
-No modelo ER, as entidades representam objetos do mundo real, como pessoas, lugares ou coisas, enquanto os relacionamentos descrevem as associações entre essas entidades. A modelagem ER utiliza conceitos como entidades, atributos e relacionamentos para criar um diagrama que representa visualmente a estrutura dos dados.
-
-No modelo Relacional, os dados são organizados em tabelas com linhas (registros) e colunas (atributos). As tabelas são conectadas por chaves primárias e estrangeiras para estabelecer relacionamentos entre elas. O modelo relacional é amplamente utilizado na maioria dos sistemas de banco de dados modernos.
-
-Ao realizar a modelagem lógica, é essencial considerar os seguintes elementos:
-
-Entidades: Representam objetos do mundo real com características distintas e identificáveis. Cada entidade é descrita por seus atributos, que são propriedades ou características específicas.
-
-Relacionamentos: Descrevem as conexões e associações entre as entidades. Os relacionamentos podem ser um-para-um, um-para-muitos ou muitos-para-muitos, e podem ter atributos próprios.
-
-Chaves: Identificam exclusivamente cada registro em uma tabela. A chave primária é um atributo único que identifica de forma única cada linha em uma tabela, enquanto as chaves estrangeiras estabelecem relacionamentos entre tabelas.
-
-Restrições: Impõem regras e limitações aos dados armazenados. Isso pode incluir restrições de integridade referencial, restrições de domínio para validar os valores dos atributos e outras regras de negócios.
-
-A modelagem lógica é uma fase essencial do processo de projeto de banco de dados, pois ajuda a definir a estrutura dos dados e a facilitar a implementação do banco de dados em um SGBD específico. Além disso, o modelo lógico serve como uma base para a criação de consultas, relatórios e operações de manipulação dos dados no sistema de banco de dados.
 
 
 
