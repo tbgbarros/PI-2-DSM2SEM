@@ -275,7 +275,7 @@ require_once 'class/log_consult.php';
                       <div class="col-4">
                         <div class="d-flex justify-content-end">
                           <div class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
-                            <i class="ti ti-currency-dollar fs-6"></i>
+                            <i class="ti ti-calendar fs-6"></i>
                           </div>
                         </div>
                       </div>
