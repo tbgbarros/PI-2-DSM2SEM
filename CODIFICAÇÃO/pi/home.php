@@ -269,7 +269,7 @@ require_once 'class/log_consult.php';
                             <i class="ti ti-arrow-down-right text-danger"></i>
                           </span>
                           <p class="text-dark me-1 fs-3 mb-0">+2%</p>
-                          <p class="fs-3 mb-0">ultimo ano</p>
+                          <p class="fs-3 mb-0">ultimo mês</p>
                         </div>
                       </div>
                       <div class="col-4">
