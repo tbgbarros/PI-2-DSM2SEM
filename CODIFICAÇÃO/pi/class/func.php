@@ -326,7 +326,7 @@ class Login
                 </td>";
                 echo "<td>
                     <div class='d-flex align-items-center gap-2'>
-                        <span class='btn btn-warning  fw-semibold'>
+                        <span class='btn btn-secondary  fw-semibold'>
                         <a href='visualizar_pdf.php?id=$nomeArquivo' rel='noopener'target='_blank'>";
                 echo $nomeArquivo . "</a>";
                 echo "</tr>";
@@ -623,7 +623,6 @@ class Login
         } else {
             echo "Erro ao ler o conteúdo do arquivo.";
         }
-
     }
 
 

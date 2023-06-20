@@ -203,8 +203,8 @@ require_once 'class/log_consult.php';
             <div class="card w-100">
               <div class="card-body p-2">
                 <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
-                  <div class="mb-3 mb-sm-0  ">
-                    <h5 class="card-title fw-semibold  ">Consultas por periodo</h5>
+                  <div class="mb-3 mb-sm-0 ">
+                    <h5 class="card-title fw-semibold text-center">Consultas por periodo</h5>
                   </div>
                   <div>
                     <select class="form-select">
