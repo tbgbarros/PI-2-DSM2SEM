@@ -325,7 +325,7 @@ class Login
                     </div>
                 </td>";
                 echo "<td>
-                    <div class='d-flex align-items-center gap-2 btn btn-dark'>
+                    <div class='d-flex align-items-center gap-2'>
                         <span class='btn btn-link  fw-semibold'>
                         <a href='visualizar_pdf.php?id=$nomeArquivo' rel='noopener'target='_blank'>";
                 echo $nomeArquivo . "</a>";
