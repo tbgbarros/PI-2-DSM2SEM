@@ -12,8 +12,8 @@ require_once 'class/log_consult.php';
   <title>Prontuário Online</title>
   <link rel="shortcut icon" type="image/png" href="./images/logos/favicon.png" />
   <link rel="stylesheet" href="./css/styles.min.css" />
-  <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@latest/dist/apexcharts.min.css">
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
@@ -197,24 +197,25 @@ require_once 'class/log_consult.php';
       <!--  header -->
       <div class="container-fluid">
         <!--  tabela sql consulta  -->
-        <div class="row">
-          <div class="col-lg-8 d-flex align-items-strech">
+        <div class="row ">
+          <div class="col-lg-8 d-flex p-1">
+            <!--bug div chart2 -->
             <div class="card w-100">
-              <div class="card-body">
+              <div class="card-body p-2">
                 <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
-                  <div class="mb-3 mb-sm-0">
-                    <h5 class="card-title fw-semibold">Consultas por periodo</h5>
+                  <div class="mb-3 mb-sm-0  ">
+                    <h5 class="card-title fw-semibold  ">Consultas por periodo</h5>
                   </div>
                   <div>
                     <select class="form-select">
-                      <option value="1">Março 2023</option>
-                      <option value="2">Abril 2023</option>
-                      <option value="3">Maio 2023</option>
-                      <option value="4">Junho 2023</option>
+                      <option value="1">Junho 2023</option>
+                      <option value="2">Maio 2023</option>
+                      <option value="3">Abril 2023</option>
+                      <option value="4">Março 2023</option>
                     </select>
                   </div>
                 </div>
-                <div id="chart2"></div>
+                <div class="" id="chart2"></div>
               </div>
             </div>
           </div>
@@ -223,7 +224,7 @@ require_once 'class/log_consult.php';
               <div class="col-lg-12">
                 <!-- ano -->
                 <div class="card overflow-hidden">
-                  <div class="card-body p-4">
+                  <div class="card-body p-5">
                     <h5 class="card-title mb-9 fw-semibold">Consultas anuais</h5>
                     <div class="row align-items-center">
                       <div class="col-8">
@@ -258,7 +259,7 @@ require_once 'class/log_consult.php';
               <div class="col-lg-12">
                 <!-- mensal -->
                 <div class="card">
-                  <div class="card-body">
+                  <div class="card-body p-5">
                     <div class="row alig n-items-start">
                       <div class="col-8">
                         <h5 class="card-title mb-9 fw-semibold"> Consultas mensais </h5>

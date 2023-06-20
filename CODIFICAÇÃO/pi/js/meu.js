@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }],
         chart: {
             type: 'bar',
-            height: 300,
+            height: 280,
             offsetX: -15,
             toolbar: { show: true },
             foreColor: "#adb0bb",
